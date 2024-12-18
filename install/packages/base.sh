@@ -29,9 +29,7 @@ PACKAGES_PIP=(
 )
 
 update_apt
-install_apt ${PACKAGES_APT[@]}
-
 update_pip
+install_apt ${PACKAGES_APT[@]}
 install_pip ${PACKAGES_PIP[@]}
-
 install_bin_from_zip "Bitwarden CLI" "bitwarden.zip" "bw" "https://vault.bitwarden.com/download/?app=cli&platform=linux"

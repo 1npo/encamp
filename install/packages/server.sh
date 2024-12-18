@@ -9,5 +9,4 @@ PACKAGES_APT=(
 
 update_apt
 install_apt ${PACKAGES_APT[@]}
-
 install_bin_from_zip "Ubooquity" "ubooquity.zip" "Ubooquity.jar" "http://vaemendis.net/ubooquity/service/download.php"

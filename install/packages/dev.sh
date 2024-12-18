@@ -15,8 +15,6 @@ PACKAGES_PIP=(
 
 update_apt
 update_pip
-
 install_apt ${PACKAGES_APT[@]}
 install_pip ${PACKAGES_PIP[@]}
-
 install_rust

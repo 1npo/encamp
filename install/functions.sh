@@ -8,8 +8,6 @@ function update_apt() {
 	sudo apt update && sudo apt upgrade -y
 }
 
-
-
 function install_apt() {
 	packages=$@
 	echo "Installing ${#packages[@]} packages via apt (${packages[@]})..."
@@ -62,7 +60,11 @@ function install_rust() {
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
-
+function install_fonts() {
+	echo "Downloading fonts from Google Drive..."
+	echo "Unpacking fonts..."
+	echo "Installing fonts..."
+}
 
 function bw_login() {
 	if [[ -z "${BW_CLIENTID}" ]]; then

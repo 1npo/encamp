@@ -42,9 +42,3 @@ function dialog_menu() {
 }
 
 INSTALL_PACKAGES=$(dialog_menu "checklist" "Choose Package Groups to Install" ${SYSTEMS[@]})
-
-case $SYSTEM in
-	1)	PACKAGES=$(dialog_menu "checklist" "Available Package Installers" ${PACKAGES_DEBIAN[@]});
-		echo "Getting packages: $PACKAGES" ;;
-	2)	echo ;;
-esac

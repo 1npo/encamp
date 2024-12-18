@@ -13,11 +13,8 @@ PACKAGES_SNAP=(
 )
 
 update_apt
-install_apt ${PACKAGES_APT[@]}
-
 update_snap
+install_apt ${PACKAGES_APT[@]}
 install_snap ${PACKAGES_SNAP[@]}
-
 install_dpkg "VSCode" "vscode.deb" "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-
 install_fonts
