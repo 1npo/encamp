@@ -1,0 +1,13 @@
+127.0.0.1	localhost
+127.0.1.1	krevati.galnet krevati
+192.168.1.1	gateway.galnet gateway
+192.168.1.2	uap.galnet uap
+192.168.1.3	ergaleio.galnet ergaleio
+192.168.1.5	trapezi.galnet trapezi 
+192.168.1.6	apothiki.galnet	apothiki
+192.168.1.7	sentry.galnet sentry
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
