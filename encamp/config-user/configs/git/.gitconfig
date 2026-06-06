@@ -1,0 +1,8 @@
+[user]
+	name = Nick OMalley
+	email = nickpeteromalley@gmail.com
+[core]
+	autocrlf = false
+	filemode = false
+[init]
+	defaultBranch = main
