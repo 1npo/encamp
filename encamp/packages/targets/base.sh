@@ -3,9 +3,15 @@
 # Install base packages on all targets
 #
 
-source ../../config.sh
-source ../install_via.sh
-source ../install_app.sh
+_setup() {
+    local script_dir=$(realpath $(dirname "${BASH_SOURCE[0]}"))
+
+    source "${script_dir}/../../config.sh"
+    source "${script_dir}/../../utils.sh"
+    source "${script_dir}/../install_via.sh"
+    source "${script_dir}/../install_app.sh"
+}
+_setup; unset -f _setup
 
 PACKAGES_APT=(
     zsh

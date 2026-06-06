@@ -3,24 +3,28 @@
 # Install packages on targets with graphical desktop environments
 #
 
-source ../../config.sh
-source ../install_via.sh
-source ../install_app.sh
+_setup() {
+    local script_dir=$(realpath $(dirname "${BASH_SOURCE[0]}"))
+
+    source "${script_dir}/../../config.sh"
+    source "${script_dir}/../../utils.sh"
+    source "${script_dir}/../install_via.sh"
+    source "${script_dir}/../install_app.sh"
+}
+_setup; unset -f _setup
 
 PACKAGES_APT=(
-
-)
-PACKAGES_CARGO=(
-
-)
-PACKAGES_PIP=(
-
+    alacritty
+    kde-plasma-desktop
+    xdg-open
+    qbittorrent
+    vlc
+    feh
+    steam
+    fuzzel
 )
 
 run_step install_via_apt    ""      "${PACKAGES_APT[@]}"
-run_step install_rust       cargo
-run_step install_via_cargo  ""      "${PACKAGES_CARGO[@]}"
-run_step install_uv         uv
-run_step install_via_pip    ""      "${PACKAGES_PIP[@]}"
-run_step install_bitwarden  bw
-run_step install_neovim     nvim    "deb"
+run_step install_kitty      kitty
+run_step install_vscode     code
+run_step install_obsidian   obsidian
