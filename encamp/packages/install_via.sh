@@ -3,8 +3,13 @@
 # Defines functions used to install packages via package managers
 #
 
-source ../config.sh
-source ../utils.sh
+_setup() {
+    local script_dir=$(realpath $(dirname "${BASH_SOURCE[0]}"))
+
+    source "${script_dir}/../config.sh"
+    source "${script_dir}/../utils.sh"
+}
+_setup; unset -f _setup
 
 install_via_apt() {
     local packages=("$@")

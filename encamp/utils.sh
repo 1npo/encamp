@@ -3,11 +3,11 @@
 # Defines utility functions used by the other encamp scripts
 #
 
-VERSION=$(cat ../VERSION)
+VERSION_FILE="$(dirname "${BASH_SOURCE[0]}")/../VERSION"
+VERSION=$(cat "$VERSION_FILE")
 
 log() {
     echo "===> $*"
-    echo "===> $*" >&2
 }
 
 run_step() {
@@ -21,9 +21,12 @@ run_step() {
     log "Running ${func}..."
     "$func" "$@"
     local exit_code=$?
+    if [ $exit_code -eq 130 ]; then
+        cleanup
+    fi
     if [ $exit_code -ne 0 ]; then
-        log "ERROR: ${func} failed with exit code ${exit_code}"
-        return $exit_code
+        log "Error: ${func} failed with exit code ${exit_code}"
+        exit $exit_code
     fi
     log "Finished running ${func}"
 }
