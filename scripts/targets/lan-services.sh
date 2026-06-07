@@ -31,11 +31,12 @@ packages() {
 }
 
 config_user() {
-    run_step install_user_configs ""
+    local CONFIGS=()
+    run_step install_user_configs "" "${CONFIGS[@]}"
 }
 
 config_system() {
-    run_step install_system_configs ""
+    run_step install_system_configs
 }
 
 services() {
@@ -43,6 +44,6 @@ services() {
         ubooquity.service
         protonmail-bridge.service
     )
-    run_step install_user_services  "" "${USER_SERVICES[@]}"
-    run_step install_system_services ""
+    run_step install_user_services "" "${USER_SERVICES[@]}"
+    run_step install_system_services
 }

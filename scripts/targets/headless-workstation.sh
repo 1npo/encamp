@@ -26,10 +26,11 @@ config_user() {
 }
 
 config_system() {
-    run_step install_system_configs ""
+    run_step install_system_configs
 }
 
 services() {
-    run_step install_user_services  ""
-    run_step install_system_services ""
+    local USER_SERVICES=()
+    run_step install_user_services "" "${USER_SERVICES[@]}"
+    run_step install_system_services
 }
