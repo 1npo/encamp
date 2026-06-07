@@ -11,9 +11,10 @@ A lightweight tool for provisioning a fleet of Debian machines and keeping their
     - [encamp](#encamp-1)
       - [Examples](#examples)
     - [encamp-sync](#encamp-sync)
+      - [Examples](#examples-1)
   - [Documentation](#documentation)
     - [Guides](#guides)
-    - [Project documentation](#project-documentation)
+    - [Project Documentation](#project-documentation)
   - [GenAI Usage Disclosure](#genai-usage-disclosure)
 
 ## Installation
@@ -88,7 +89,7 @@ encamp-sync <command> [message]
 | `pull` | Pull latest changes from the remote and re-stow configurations |
 | `push <message>` | Commit local configuration changes and push them to the remote |
 
-**Examples:**
+#### Examples
 
 ```sh
 encamp-sync pull
@@ -99,7 +100,7 @@ encamp-sync push "updated zsh config"
 
 ### Guides
 
-Step-by-step instructions for manual setup tasks:
+See [docs/guides/](docs/guides/) for instructions on how to perform some manual setups.
 
 - [Bitwarden with pass](docs/guides/bitwarden-with-pass.md)
 - [GPG agent, pass, and keyring](docs/guides/gpg-agent-pass-keyring.md)
@@ -109,14 +110,15 @@ Step-by-step instructions for manual setup tasks:
 - [SSH agent](docs/guides/ssh-agent.md)
 - [tmux plugins](docs/guides/tmux-plugins.md)
 
-### Project documentation
+### Project Documentation
 
-Reference documentation for understanding and maintaining the project:
+See [docs/](docs/) for reference materials to help you understand and maintain this project.
 
-- [Architecture](docs/architecture.md) — how the project is structured and how the pieces fit together
-- [Targets](docs/targets.md) — what each target installs and when to use it
-- [Configs](docs/configs.md) — how user and system configs are organized and managed
-- [Adding a new machine](docs/new-machine.md) — checklist for onboarding a new host
+| Document | Description |
+|---|---|
+| [Architecture](docs/architecture.md) | How `encamp` is structured and how its components work together |
+| [Configs](docs/configs.md) | How user and system configurations are organized and managed |
+| [Adding a new machine](docs/new-machine.md) | A checklist for onboarding a new host |
 
 ## GenAI Usage Disclosure
 
