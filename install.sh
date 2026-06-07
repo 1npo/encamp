@@ -4,7 +4,7 @@
 #
 # To install encamp with this script, run:
 #   
-#   curl -fsSL https://raw.githubusercontent.com/<user>/encamp-v2/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/<user>/encamp/main/install.sh | bash
 #
 # Usage examples:
 #
@@ -30,7 +30,7 @@
 #       encamp-sync pull
 #
 
-REPO_URL="https://github.com/1npo/encamp-v2.git"
+REPO_URL="https://github.com/1npo/encamp.git"
 SHARE_DIR="${HOME}/.local/share/encamp"
 BIN_DIR="${HOME}/.local/bin"
 

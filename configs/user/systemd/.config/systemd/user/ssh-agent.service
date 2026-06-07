@@ -1,5 +1,7 @@
 [Unit]
+#ConditionEnvironment=!SSH_AGENT_PID
 Description=User's SSH Agent
+Documentation=man:ssh-agent(1) man:ssh-add(1) man:ssh(1)
 
 [Service]
 Type=simple

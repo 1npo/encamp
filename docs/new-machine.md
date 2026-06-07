@@ -16,7 +16,7 @@ This is the procedure for using `encamp` to provision a fresh Debian install.
 ## 1. Install encamp
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/1npo/encamp-v2/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/1npo/encamp/main/install.sh | bash
 ```
 
 This clones the repo and adds `encamp` and `encamp-sync` to `~/.local/bin`.
