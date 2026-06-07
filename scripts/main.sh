@@ -5,8 +5,8 @@
 
 SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
-source "${SCRIPT_DIR}/config.sh"
-source "${SCRIPT_DIR}/utils.sh"
+source "${SCRIPT_DIR}/settings.sh"
+source "${SCRIPT_DIR}/lib/utils.sh"
 
 trap cleanup INT
 trap cleanup SIGINT
@@ -56,20 +56,12 @@ grep -qxF "${TARGET}" "${STATE_DIR}/targets" 2>/dev/null || echo "${TARGET}" >> 
 log "Encamping on this target: ${TARGET}"
 log "Encamping this module: ${MODULE}"
 
-run_module() {
-    local module="$1"
-    "${SCRIPT_DIR}/${module}/targets/${TARGET}.sh"
-    local exit_code=$?
-    if [[ $exit_code -eq 130 ]]; then
-        cleanup
-    fi
-}
+source "${SCRIPT_DIR}/targets/${TARGET}.sh"
 
-if [[ "$MODULE" == "all" ]]; then
-    for module in "${MODULES[@]}"; do
-        [[ "$module" == "all" ]] && continue
-        run_module "$module"
-    done
-else
-    run_module "$MODULE"
-fi
+case "$MODULE" in
+    all)           packages; config_user; config_system; services ;;
+    packages)      packages ;;
+    config-user)   config_user ;;
+    config-system) config_system ;;
+    services)      services ;;
+esac

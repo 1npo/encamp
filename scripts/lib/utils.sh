@@ -3,7 +3,7 @@
 # Defines utility functions used by the other encamp scripts
 #
 
-VERSION_FILE="$(dirname "${BASH_SOURCE[0]}")/../VERSION"
+VERSION_FILE="$(dirname "${BASH_SOURCE[0]}")/../../VERSION"
 VERSION=$(cat "$VERSION_FILE")
 
 log() {

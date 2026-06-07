@@ -5,8 +5,8 @@
 
 SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
-source "${SCRIPT_DIR}/config.sh"
-source "${SCRIPT_DIR}/utils.sh"
+source "${SCRIPT_DIR}/settings.sh"
+source "${SCRIPT_DIR}/lib/utils.sh"
 
 if [ $# -lt 1 ]; then
     log ""
@@ -49,7 +49,8 @@ sync_pull() {
     fi
     while IFS= read -r target; do
         log "Re-stowing config-user for target: ${target}"
-        "${SCRIPT_DIR}/config-user/targets/${target}.sh"
+        source "${SCRIPT_DIR}/targets/${target}.sh"
+        config_user
     done < "${STATE_DIR}/targets"
 }
 

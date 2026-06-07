@@ -3,13 +3,13 @@
 # Defines functions used to download, build, and install specific applications
 #
 
-_setup() {
+_import() {
     local script_dir=$(realpath $(dirname "${BASH_SOURCE[0]}"))
 
-    source "${script_dir}/../config.sh"
-    source "${script_dir}/../utils.sh"
+    source "${script_dir}/../settings.sh"
+    source "${script_dir}/utils.sh"
 }
-_setup; unset -f _setup
+_import; unset -f _import
 
 install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
