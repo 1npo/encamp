@@ -2,11 +2,11 @@
 
 192.168.1.1	gateway.galnet gateway
 192.168.1.2	uap.galnet uap
-192.168.1.3 globule.galnet globule
-192.168.1.5	imperium.galnet imperium
-192.168.1.6	apothiki.galnet apothiki
-192.168.1.7	sentry.galnet sentry
-192.168.1.200 diatom.galnet diatom
+192.168.1.3	sentry.galnet sentry
+192.168.1.4	apothiki.galnet apothiki
+192.168.1.5 globule.galnet globule
+192.168.1.6 diatom.galnet diatom
+192.168.1.7	portal.galnet portal
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
