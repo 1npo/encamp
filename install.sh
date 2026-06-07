@@ -55,6 +55,6 @@ fi
 log "Installing symlinks in ${BIN_DIR}..."
 ln -sf "${SHARE_DIR}/scripts/main.sh" "${BIN_DIR}/encamp"
 ln -sf "${SHARE_DIR}/scripts/sync.sh" "${BIN_DIR}/encamp-sync"
-chmod +x "${SHARE_DIR}/scripts/main.sh" "${SHARE_DIR}/encamp/sync.sh"
+chmod +x "${SHARE_DIR}/scripts/main.sh" "${SHARE_DIR}/scripts/sync.sh"
 
 log "Done. You can now run: encamp <target> <module>"
