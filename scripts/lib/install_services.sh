@@ -30,7 +30,7 @@ install_user_services() {
 
 install_system_services() {
     local host=$(hostname -s)
-    local service_dir="${SHARE_DIR}/encamp/configs/system/${host}/etc/systemd/system"
+    local service_dir="${SHARE_DIR}/configs/system/${host}/etc/systemd/system"
     if [ ! -d "${service_dir}" ]; then
         log "No system services found for host '$(hostname -s)', skipping."
         return 0
