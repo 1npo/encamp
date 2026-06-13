@@ -32,5 +32,5 @@ config_system() {
 services() {
     local USER_SERVICES=()
     run_step install_user_services "" "${USER_SERVICES[@]}"
-    run_step install_system_services
+    # run_step install_system_services
 }

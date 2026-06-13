@@ -51,5 +51,5 @@ services() {
         protonmail-bridge.service
     )
     run_step install_user_services "" "${USER_SERVICES[@]}"
-    run_step install_system_services
+    # run_step install_system_services
 }
