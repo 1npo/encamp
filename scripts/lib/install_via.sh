@@ -45,5 +45,5 @@ install_via_pip() {
         log "Nothing to install."
         return 1
     fi
-    VIRTUAL_ENV="$VENV_PYTHON" uv pip install "${packages[@]}"
+    VIRTUAL_ENV="$VENV_DIR" uv pip install "${packages[@]}"
 }
