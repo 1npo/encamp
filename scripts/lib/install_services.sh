@@ -41,15 +41,16 @@ install_user_services() {
             systemctl --user start "${svc}"
         else
             log "User declined to start service '${svc}'"
+        fi
     done
-    
-    local linger_status="$(loginctl show-user nick --property=Linger)"
+
+    local linger_status="$(loginctl show-user $USER --property=Linger)"
     if [[ "$linger_status" == "Linger=no" ]]; then
         log "Enabling systemd user lingering..."
         sudo loginctl enable-linger $USER
     else
         log "Lingering already enabled for user '$USER'"
-    
+    fi
 }
 
 install_system_services() {
@@ -67,6 +68,6 @@ install_system_services() {
         log "No system services to enable."
         return 0
     fi
-    sudo systemctl --daemon-reload
-    sudo systemctl --enable "${services[@]}"
+    sudo systemctl daemon-reload
+    sudo systemctl enable "${services[@]}"
 }
