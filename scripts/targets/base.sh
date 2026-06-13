@@ -81,6 +81,8 @@ config_user() {
         smb
         systemd
         rclone
+        python_keyring
+        gnupg
     )
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
