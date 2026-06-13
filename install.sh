@@ -36,14 +36,12 @@ BIN_DIR="${HOME}/.local/bin"
 
 mkdir -p "$SHARE_DIR" "$BIN_DIR"
 
+su -c "apt install sudo git curl"
+su -c "visudo"
+
 log() {
     echo "===> $*"
 }
-
-if ! command -v git &>/dev/null; then
-    log "Error: git is required but not found in \$PATH"
-    exit 1
-fi
 
 if [ -d "${SHARE_DIR}/.git" ]; then
     log "Repository already exists at ${SHARE_DIR}, skipping clone"
