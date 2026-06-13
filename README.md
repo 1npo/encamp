@@ -1,6 +1,8 @@
 # encamp
 
-A lightweight tool for provisioning a fleet of Debian machines and keeping their user configurations synchronized.
+The tool I use to provision new Debian systems and keeping their user configurations synchronized.
+
+This is a personal project - read the contents before running these scripts on your machine.
 
 ## Contents
 
@@ -13,9 +15,9 @@ A lightweight tool for provisioning a fleet of Debian machines and keeping their
     - [encamp-sync](#encamp-sync)
       - [Examples](#examples-1)
   - [Documentation](#documentation)
-    - [Guides](#guides)
     - [Project Documentation](#project-documentation)
-  - [GenAI Usage Disclosure](#genai-usage-disclosure)
+    - [Guides](#guides)
+  - [LLM Usage Disclosure](#llm-usage-disclosure)
 
 ## Installation
 
@@ -98,6 +100,16 @@ encamp-sync push "updated zsh config"
 
 ## Documentation
 
+### Project Documentation
+
+See [docs/](docs/) for reference materials to help you understand and maintain this project.
+
+| Document | Description |
+|---|---|
+| [Architecture](docs/architecture.md) | How `encamp` is structured and how its components work together |
+| [Configs](docs/configs.md) | How user and system configurations are organized and managed |
+| [Adding a new machine](docs/new-machine.md) | A checklist for onboarding a new host |
+
 ### Guides
 
 See [docs/guides/](docs/guides/) for instructions on how to perform some manual setups.
@@ -110,25 +122,15 @@ See [docs/guides/](docs/guides/) for instructions on how to perform some manual 
 - [SSH agent](docs/guides/ssh-agent.md)
 - [tmux plugins](docs/guides/tmux-plugins.md)
 
-### Project Documentation
+## LLM Usage Disclosure
 
-See [docs/](docs/) for reference materials to help you understand and maintain this project.
-
-| Document | Description |
-|---|---|
-| [Architecture](docs/architecture.md) | How `encamp` is structured and how its components work together |
-| [Configs](docs/configs.md) | How user and system configurations are organized and managed |
-| [Adding a new machine](docs/new-machine.md) | A checklist for onboarding a new host |
-
-## GenAI Usage Disclosure
-
-Claude Sonnet 4.6 (Low Effort) was used in the development of this project in the following capacities.
-
-Everything in this project, except the items listed below, was developed and written by me.
+The tasks listed below were performed by or with the aid of a LLM (Claude Sonnet 4.6, Claude Code):
 
 - Writing the first draft of this README.md
 - Writing the first drafts of the project documentation
 - Troubleshooting errors
+- Writing the test suite
+- Writing `docs/developers.md`
 - Suggesting and implementing various best practice changes:
   - Reorganizing the project layout to reduce complexity and number of files needed
   - Implementing the following code using the conventions and style used in other modules:
