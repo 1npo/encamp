@@ -13,7 +13,8 @@ _import() {
     source "${script_dir}/../lib/install_services.sh"
     source "${script_dir}/../lib/install_configs.sh"
 }
-_import; unset -f _import
+_import
+unset -f _import
 
 packages() {
     local PACKAGES_APT=(
@@ -60,13 +61,13 @@ packages() {
         dateutils
     )
 
-    run_step install_via_apt    ""      "${PACKAGES_APT[@]}"
-    run_step install_rust       cargo
-    run_step install_via_cargo  ""      "${PACKAGES_CARGO[@]}"
-    run_step install_uv         uv
-    run_step install_via_pip    ""      "${PACKAGES_PIP[@]}"
-    run_step install_bitwarden  bw
-    run_step install_neovim     nvim    "deb"
+    run_step install_via_apt "" "${PACKAGES_APT[@]}"
+    run_step install_rust cargo
+    run_step install_via_cargo "" "${PACKAGES_CARGO[@]}"
+    run_step install_uv uv
+    run_step install_via_pip "" "${PACKAGES_PIP[@]}"
+    run_step install_bitwarden bw
+    run_step install_neovim nvim "deb"
 }
 
 config_user() {
@@ -79,6 +80,7 @@ config_user() {
         ssh
         smb
         systemd
+        rclone
     )
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
@@ -92,6 +94,6 @@ services() {
         gpg-agent.service
         ssh-agent.service
     )
-    run_step install_user_services  "" "${USER_SERVICES[@]}"
+    run_step install_user_services "" "${USER_SERVICES[@]}"
     run_step install_system_services
 }
