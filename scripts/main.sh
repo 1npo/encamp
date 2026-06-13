@@ -3,7 +3,7 @@
 # Entry point for encamp
 #
 
-SCRIPT_DIR=$(realpath $(dirname "${BASH_SOURCE[0]}"))
+SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 
 source "${SCRIPT_DIR}/settings.sh"
 source "${SCRIPT_DIR}/lib/utils.sh"

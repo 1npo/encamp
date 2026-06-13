@@ -4,7 +4,7 @@
 #
 
 _import() {
-    local script_dir=$(realpath $(dirname "${BASH_SOURCE[0]}"))
+    local script_dir=$(dirname $(realpath "${BASH_SOURCE[0]}"))
 
     source "${script_dir}/../settings.sh"
     source "${script_dir}/utils.sh"
