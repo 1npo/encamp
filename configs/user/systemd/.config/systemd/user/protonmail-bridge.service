@@ -4,7 +4,9 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/protonmail-bridge -n
+ExecStart=/usr/bin/protonmail-bridge --noninteractive --nowindow
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=default.target
