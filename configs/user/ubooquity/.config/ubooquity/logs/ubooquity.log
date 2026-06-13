@@ -279,3 +279,27 @@ java.nio.file.AccessDeniedException: /home/nick/../.local
 20260613 18:40:51 [main] INFO  com.ubooquity.a - Internal server started. Listening on port 2202 (library) and 2203 (admin)
 20260613 18:40:52 [Timer-1] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
 20260613 18:40:52 [Timer-1] WARN  com.ubooquity.f.g - Could not get vendor info: java.net.UnknownHostException - vaemendis.net
+20260613 18:55:51 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 18:55:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 18:55:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 18:55:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 18:55:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 18:55:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 19:10:51 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 19:10:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 19:10:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 19:10:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 19:10:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 19:10:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 19:25:51 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 19:25:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 19:25:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 19:25:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 19:25:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 19:25:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 19:40:51 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 19:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 19:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 19:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 19:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 19:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
