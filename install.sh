@@ -36,14 +36,41 @@ BIN_DIR="${HOME}/.local/bin"
 
 mkdir -p "$SHARE_DIR" "$BIN_DIR"
 
-su -c "apt update && apt install -y sudo git curl && visudo" < /dev/tty
-
 log() {
     echo "===> $*"
 }
 
+REQUIRED_CMDS=(sudo git curl)
+UPGRADED_APT=false
+for cmd in "${REQUIRED_CMDS[@]}"; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        log "Required command not found: ${cmd}"
+        
+        if [[ "$UPGRADED_APT" == "false" ]]; then
+            log "Updating and upgrading apt..."
+            su -c "apt update && apt upgrade" < /dev/tty
+            UPGRADED_APT=true
+        fi
+
+        log "Installing ${cmd}..."
+
+        if command -v "sudo" >/dev/null 2>&1; then
+            sudo apt install -y "$cmd"
+        else
+            su -c "apt install -y $cmd" < /dev/tty
+        fi
+    fi
+done
+
+if ! getent group sudo | cut -d: -f4 | grep -qE "(^|,)$USER(,|$)"; then
+    log "User not in sudoers group"
+    log "Running visudo - add yourself to sudoers"
+    su -c "/usr/sbin/visudo" < /dev/tty
+fi
+
 if [ -d "${SHARE_DIR}/.git" ]; then
-    log "Repository already exists at ${SHARE_DIR}, skipping clone"
+    log "Repository already exists at ${SHARE_DIR}, checking for updates..."
+    git -C ${SHARE_DIR} pull origin mian
 else
     log "Cloning encamp into ${SHARE_DIR}..."
     git clone "${REPO_URL}" "${SHARE_DIR}"
