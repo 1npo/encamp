@@ -1,0 +1,226 @@
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Running with the following parameters - headless: true, libraryport: -1, adminport: -1, remoteadmin: true, host: null, execdir: /home/nick/.config/ubooquity
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - #     Starting Ubooquity    #
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Java version: 21.0.11
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Java vendor: Debian
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - java vm name: OpenJDK 64-Bit Server VM
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - java runtime name: OpenJDK Runtime Environment
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Max heap size available: 938 MB
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - OS name: Linux
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - OS version: 6.12.90+deb13.1-amd64
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - OS architecture: amd64
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Loading local version info
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Ubooquity 3.1.0 built on 2025-08-10 at 13:54
+20260613 17:40:10 [main] INFO  com.ubooquity.Ubooquity - Creating application folders
+20260613 17:40:10 [main] INFO  c.u.pref.PreferencesRepository - Loading preferences...
+20260613 17:40:13 [main] INFO  com.ubooquity.a - Starting internal server...
+20260613 17:40:13 [main] INFO  com.ubooquity.a - Reverse proxy prefix is not activated
+20260613 17:40:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 17:40:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 17:40:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 17:40:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 17:40:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 17:40:13 [main] INFO  org.eclipse.jetty.server.Server - jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 21.0.11+10-1-deb13u2-Debian
+20260613 17:40:13 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@5e9f73b{/,null,AVAILABLE,@admin}
+20260613 17:40:13 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@1a565afb{/,null,AVAILABLE,@library}
+20260613 17:40:13 [main] INFO  o.e.jetty.server.AbstractConnector - Started library@134ff8f8{HTTP/1.1, (http/1.1)}{0.0.0.0:2202}
+20260613 17:40:13 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@480b57e2{HTTP/1.1, (http/1.1)}{0.0.0.0:2203}
+20260613 17:40:13 [main] INFO  org.eclipse.jetty.server.Server - Started Server@56928e17{STARTING}[11.0.15,sto=0] @5259ms
+20260613 17:40:13 [main] INFO  com.ubooquity.a - Internal server started. Listening on port 2202 (library) and 2203 (admin)
+20260613 17:40:14 [Timer-1] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
+20260613 17:40:15 [Timer-1] INFO  com.ubooquity.Ubooquity - Latest version available: 3.1.0 - Current version: 3.1.0
+20260613 17:45:30 [qtp1586636359-45] WARN  o.e.j.server.handler.ContextHandler - Unimplemented getRequestCharacterEncoding() - use org.eclipse.jetty.servlet.ServletContextHandler
+20260613 17:45:30 [qtp1586636359-45] ERROR com.ubooquity.d.b - Request processing failed for URI: /admin (method:POST)
+java.nio.file.AccessDeniedException: /home/nick/../.local
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:90)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:462)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:808)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:794)
+	at org.apache.commons.io.file.PathUtils.createParentDirectories(PathUtils.java:401)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1212)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1207)
+	at org.apache.commons.io.FileUtils.newOutputStream(FileUtils.java:2477)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3510)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3546)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3529)
+	at com.ubooquity.Ubooquity.a(SourceFile:406)
+	at com.ubooquity.provider.a.a.b.processRequest(SourceFile:46)
+	at com.ubooquity.d.a.a(SourceFile:63)
+	at com.ubooquity.d.b.handle(SourceFile:54)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:178)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+20260613 17:45:41 [qtp1586636359-36] WARN  o.e.j.server.handler.ContextHandler - Unimplemented getRequestCharacterEncoding() - use org.eclipse.jetty.servlet.ServletContextHandler
+20260613 17:45:41 [qtp1586636359-36] ERROR com.ubooquity.d.b - Request processing failed for URI: /admin (method:POST)
+java.nio.file.AccessDeniedException: /home/nick/../.local
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:90)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:462)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:808)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:794)
+	at org.apache.commons.io.file.PathUtils.createParentDirectories(PathUtils.java:401)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1212)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1207)
+	at org.apache.commons.io.FileUtils.newOutputStream(FileUtils.java:2477)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3510)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3546)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3529)
+	at com.ubooquity.Ubooquity.a(SourceFile:406)
+	at com.ubooquity.provider.a.a.b.processRequest(SourceFile:46)
+	at com.ubooquity.d.a.a(SourceFile:63)
+	at com.ubooquity.d.b.handle(SourceFile:54)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:178)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+20260613 17:55:13 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 17:55:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 17:55:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 17:55:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 17:55:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 17:55:13 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 18:03:17 [qtp1586636359-39] WARN  o.e.j.server.handler.ContextHandler - Unimplemented getRequestCharacterEncoding() - use org.eclipse.jetty.servlet.ServletContextHandler
+20260613 18:03:17 [qtp1586636359-39] ERROR com.ubooquity.d.b - Request processing failed for URI: /admin (method:POST)
+java.nio.file.AccessDeniedException: /home/nick/../.local
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:90)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:462)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:808)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:794)
+	at org.apache.commons.io.file.PathUtils.createParentDirectories(PathUtils.java:401)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1212)
+	at org.apache.commons.io.file.PathUtils.newOutputStream(PathUtils.java:1207)
+	at org.apache.commons.io.FileUtils.newOutputStream(FileUtils.java:2477)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3510)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3546)
+	at org.apache.commons.io.FileUtils.writeStringToFile(FileUtils.java:3529)
+	at com.ubooquity.Ubooquity.a(SourceFile:406)
+	at com.ubooquity.provider.a.a.b.processRequest(SourceFile:46)
+	at com.ubooquity.d.a.a(SourceFile:63)
+	at com.ubooquity.d.b.handle(SourceFile:54)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:178)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:416)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:385)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:272)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.lambda$new$0(AdaptiveExecutionStrategy.java:140)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+20260613 18:03:28 [JettyShutdownThread] INFO  org.eclipse.jetty.server.Server - Stopped Server@56928e17{STOPPING}[11.0.15,sto=0]
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.a - Stopping internal server...
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.a.b.a - Aborting content scan...
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.a.b.a - Waiting for scanner thread to stop
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.a.b.a - Scanner thread stopped
+20260613 18:03:28 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped library@134ff8f8{HTTP/1.1, (http/1.1)}{0.0.0.0:2202}
+20260613 18:03:28 [JettyShutdownThread] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@480b57e2{HTTP/1.1, (http/1.1)}{0.0.0.0:2203}
+20260613 18:03:28 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.h.ContextHandler@1a565afb{/,null,STOPPED,@library}
+20260613 18:03:28 [JettyShutdownThread] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.h.ContextHandler@5e9f73b{/,null,STOPPED,@admin}
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.a - Internal server stopped
+20260613 18:03:28 [Thread-2] INFO  com.ubooquity.Ubooquity - Ubooquity has closed.
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Running with the following parameters - headless: true, libraryport: -1, adminport: -1, remoteadmin: true, host: null, execdir: /home/nick/.local/share/encamp/configs/user/ubooquity/.config/ubooquity
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - #     Starting Ubooquity    #
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Java version: 21.0.11
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Java vendor: Debian
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - java vm name: OpenJDK 64-Bit Server VM
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - java runtime name: OpenJDK Runtime Environment
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Max heap size available: 938 MB
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - OS name: Linux
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - OS version: 6.12.90+deb13.1-amd64
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - OS architecture: amd64
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Loading local version info
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Ubooquity 3.1.0 built on 2025-08-10 at 13:54
+20260613 18:03:30 [main] INFO  com.ubooquity.Ubooquity - Creating application folders
+20260613 18:03:31 [main] INFO  c.u.pref.PreferencesRepository - Loading preferences...
+20260613 18:03:33 [main] INFO  com.ubooquity.a - Starting internal server...
+20260613 18:03:33 [main] INFO  com.ubooquity.a - Reverse proxy prefix is not activated
+20260613 18:03:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 18:03:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 18:03:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 18:03:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 18:03:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 18:03:33 [main] INFO  org.eclipse.jetty.server.Server - jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 21.0.11+10-1-deb13u2-Debian
+20260613 18:03:34 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@25d0cb3a{/,null,AVAILABLE,@admin}
+20260613 18:03:34 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@345cbf40{/,null,AVAILABLE,@library}
+20260613 18:03:34 [main] INFO  o.e.jetty.server.AbstractConnector - Started library@73ae0257{HTTP/1.1, (http/1.1)}{0.0.0.0:2202}
+20260613 18:03:34 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@37854b34{HTTP/1.1, (http/1.1)}{0.0.0.0:2203}
+20260613 18:03:34 [main] INFO  org.eclipse.jetty.server.Server - Started Server@6b63e6ad{STARTING}[11.0.15,sto=0] @4881ms
+20260613 18:03:34 [main] INFO  com.ubooquity.a - Internal server started. Listening on port 2202 (library) and 2203 (admin)
+20260613 18:03:35 [Timer-1] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
+20260613 18:03:35 [Timer-1] INFO  com.ubooquity.Ubooquity - Latest version available: 3.1.0 - Current version: 3.1.0
+20260613 18:03:52 [qtp850429804-43] WARN  o.e.j.server.handler.ContextHandler - Unimplemented getRequestCharacterEncoding() - use org.eclipse.jetty.servlet.ServletContextHandler
+20260613 18:03:54 [qtp850429804-43] INFO  com.ubooquity.d.a - Admin successfully logged in
+20260613 18:03:58 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 18:03:58 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 18:03:58 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 18:03:58 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 18:03:58 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
