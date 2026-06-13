@@ -101,8 +101,6 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
     sasl_mechanism = "PLAIN";
-    sasl_username = "mentat";
-    sasl_password = "1rcpa55drow#";
   };
   GameSurge = {
     type = "IRC";
