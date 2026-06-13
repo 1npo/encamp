@@ -24,7 +24,7 @@ This is a personal project - read the contents before running these scripts on y
 Run the bootstrap script on the target machine:
 
 ```sh
-wget -q0- https://raw.githubusercontent.com/1npo/encamp/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/1npo/encamp/main/install.sh | bash
 ```
 
 This clones the repository to `~/.local/share/encamp` and adds `encamp` and `encamp-sync` to `~/.local/bin` as symlinks.
