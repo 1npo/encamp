@@ -21,6 +21,12 @@ packages() {
         postgresql
         nginx
         multitail
+
+        # protonmail-bridge dependencies
+        libxcb-cursor0
+        libsecret-1-0
+        libpulse-mainloop-glib0
+        fonts-dejavu
     )
     local PACKAGES_PIP=(pypiserver)
 
