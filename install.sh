@@ -36,8 +36,7 @@ BIN_DIR="${HOME}/.local/bin"
 
 mkdir -p "$SHARE_DIR" "$BIN_DIR"
 
-su -c "apt install sudo git curl"
-su -c "visudo"
+su -c "apt update && apt install -y sudo git curl && visudo" < /dev/tty
 
 log() {
     echo "===> $*"
