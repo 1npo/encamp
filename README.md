@@ -1,6 +1,6 @@
 # encamp
 
-The tool I use to provision new Debian systems and keeping their user configurations synchronized.
+The tool I use to provision new Debian systems on my network and keep their user configurations synchronized.
 
 This is a personal project - read the contents before running these scripts on your machine.
 
