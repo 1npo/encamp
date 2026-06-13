@@ -28,7 +28,28 @@ install_user_services() {
     # path to the configs in the encamp repository.
     export SYSTEMD_UNIT_PATH="${SHARE_DIR}/configs/user/systemd/.config/systemd:$SYSTEMD_UNIT_PATH"
     systemctl --user daemon-reload
-    systemctl --user enable "${services[@]}"
+
+    for svc in "${services[@]}"; do
+        log "Enabling service '${svc}'..."
+        systemctl --user enable "${svc}"
+    done
+
+    for svc in "${services[@]}"; do
+        log "Asking user for permission to start service '${svc}'..."
+        if whiptail --title " WARNING | STARTING SYSTEMD SERVICE " --yesno "Start systemd service '${svc}'?" 10 50; then
+            log "Starting service '${svc}'..."
+            systemctl --user start "${svc}"
+        else
+            log "User declined to start service '${svc}'"
+    done
+    
+    local linger_status="$(loginctl show-user nick --property=Linger)"
+    if [[ "$linger_status" == "Linger=no" ]]; then
+        log "Enabling systemd user lingering..."
+        sudo loginctl enable-linger $USER
+    else
+        log "Lingering already enabled for user '$USER'"
+    
 }
 
 install_system_services() {
