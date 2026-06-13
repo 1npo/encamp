@@ -236,3 +236,46 @@ java.nio.file.AccessDeniedException: /home/nick/../.local
 20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
 20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
 20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.a - Stopping internal server...
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.a.b.a - Aborting content scan...
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.a.b.a - Waiting for scanner thread to stop
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.a.b.a - Scanner thread stopped
+20260613 18:39:52 [Thread-2] INFO  org.eclipse.jetty.server.Server - Stopped Server@6b63e6ad{STOPPING}[11.0.15,sto=0]
+20260613 18:39:52 [Thread-2] INFO  o.e.jetty.server.AbstractConnector - Stopped library@73ae0257{HTTP/1.1, (http/1.1)}{0.0.0.0:2202}
+20260613 18:39:52 [Thread-2] INFO  o.e.jetty.server.AbstractConnector - Stopped admin@37854b34{HTTP/1.1, (http/1.1)}{0.0.0.0:2203}
+20260613 18:39:52 [Thread-2] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.h.ContextHandler@345cbf40{/,null,STOPPED,@library}
+20260613 18:39:52 [Thread-2] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.h.ContextHandler@25d0cb3a{/,null,STOPPED,@admin}
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.a - Internal server stopped
+20260613 18:39:52 [Thread-2] INFO  com.ubooquity.Ubooquity - Ubooquity has closed.
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Running with the following parameters - headless: true, libraryport: -1, adminport: -1, remoteadmin: true, host: null, execdir: /home/nick/.local/share/encamp/configs/user/ubooquity/.config/ubooquity
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - #     Starting Ubooquity    #
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - #############################
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Java version: 21.0.11
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Java vendor: Debian
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - java vm name: OpenJDK 64-Bit Server VM
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - java runtime name: OpenJDK Runtime Environment
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Max heap size available: 938 MB
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - OS name: Linux
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - OS version: 6.12.90+deb13.1-amd64
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - OS architecture: amd64
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Loading local version info
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Ubooquity 3.1.0 built on 2025-08-10 at 13:54
+20260613 18:40:47 [main] INFO  com.ubooquity.Ubooquity - Creating application folders
+20260613 18:40:47 [main] INFO  c.u.pref.PreferencesRepository - Loading preferences...
+20260613 18:40:51 [main] INFO  com.ubooquity.a - Starting internal server...
+20260613 18:40:51 [main] INFO  com.ubooquity.a - Reverse proxy prefix is not activated
+20260613 18:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 18:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 18:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 18:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 18:40:51 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 18:40:51 [main] INFO  org.eclipse.jetty.server.Server - jetty-11.0.15; built: 2023-04-11T18:37:53.775Z; git: 5bc5e562c8d05c5862505aebe5cf83a61bdbcb96; jvm 21.0.11+10-1-deb13u2-Debian
+20260613 18:40:51 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@6f1b8544{/,null,AVAILABLE,@admin}
+20260613 18:40:51 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.h.ContextHandler@51dae791{/,null,AVAILABLE,@library}
+20260613 18:40:51 [main] INFO  o.e.jetty.server.AbstractConnector - Started library@34d45ec0{HTTP/1.1, (http/1.1)}{0.0.0.0:2202}
+20260613 18:40:51 [main] INFO  o.e.jetty.server.AbstractConnector - Started admin@64920dc2{HTTP/1.1, (http/1.1)}{0.0.0.0:2203}
+20260613 18:40:51 [main] INFO  org.eclipse.jetty.server.Server - Started Server@338766de{STARTING}[11.0.15,sto=0] @6581ms
+20260613 18:40:51 [main] INFO  com.ubooquity.a - Internal server started. Listening on port 2202 (library) and 2203 (admin)
+20260613 18:40:52 [Timer-1] INFO  com.ubooquity.Ubooquity - Checking latest available Ubooquity version from website
+20260613 18:40:52 [Timer-1] WARN  com.ubooquity.f.g - Could not get vendor info: java.net.UnknownHostException - vaemendis.net
