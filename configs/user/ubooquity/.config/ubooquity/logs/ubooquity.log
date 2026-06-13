@@ -230,3 +230,9 @@ java.nio.file.AccessDeniedException: /home/nick/../.local
 20260613 18:18:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
 20260613 18:18:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
 20260613 18:18:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
+20260613 18:33:33 [Timer-0] INFO  com.ubooquity.a - Launching automatic scan (period = 15 minutes)
+20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scanning directories
+20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Finished scanning directories. Populating caches...
+20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Caches populated
+20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Statistics: [total: 0, added or updated: 0, removed: 0]
+20260613 18:33:33 [Scanner thread] INFO  com.ubooquity.a.b.a - Scan is complete
