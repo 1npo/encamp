@@ -24,6 +24,9 @@ install_user_services() {
             return 1
         fi
     done
+    # systemd won't read the unit files if they're symlinks. We need to provide the actual
+    # path to the configs in the encamp repository.
+    export SYSTEMD_UNIT_PATH="${SHARE_DIR}/configs/user/systemd/.config/systemd:$SYSTEMD_UNIT_PATH"
     systemctl --user daemon-reload
     systemctl --user enable "${services[@]}"
 }
