@@ -25,7 +25,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lical/lib"
 export CFLAGS="-O3 -ffast-math -march=native"
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
+export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.sock;
 
 export BRIDGE_SMTP_PW="$(pass proton-bridge-smtp)"
 export RCLONE_PASSWORD_COMMAND='pass rclone/config'
