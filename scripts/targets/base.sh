@@ -46,6 +46,7 @@ packages() {
         gettext
         cmake
         git
+        figlet
     )
     local PACKAGES_CARGO=(
         vivid
