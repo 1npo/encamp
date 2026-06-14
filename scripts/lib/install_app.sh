@@ -64,8 +64,6 @@ install_vscode() (
     cd "$CACHE_DIR"
     deb_file=$(curl -fsSL -OJ "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -w "%{filename_effective}")
     sudo dpkg -i "$deb_file"
-    # Ensure we can write files to a real directory that won't be tracked in VC
-    mkdir -p ~/.config/Code
 )
 
 install_proton_bridge() (
@@ -78,8 +76,6 @@ install_proton_bridge() (
     | head -1)
     deb_file=$(curl -fsSL -OJ "$deb_url" -w "%{filename_effective}")
     sudo dpkg -i "$deb_file"
-    # Ensure we can write files to a real directory that won't be tracked in VC
-    mkdir -p ~/.config/protonmail
 )
 
 install_ubooquity() (
