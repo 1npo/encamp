@@ -10,3 +10,7 @@
 .config/ubooquity/logs/
 .config/ubooquity/*.db
 .config/ubooquity/webadmin.cred
+
+# protonmail
+.config/protonmail/**/*.enc
+.config/protonmail/*/imap-sync/
