@@ -9,6 +9,11 @@ alias lla="ll -A"
 
 alias grep="grep --color=auto"
 alias tmux="TERM=\"screen-256color\" tmux -2"
+
+alias cmg-util="uv run --project ~/dev/projects/cmg-util cmg-util"
+
+# Make the below into functions
+
 alias plantuml='java -Djava.awt.headless=true -jar ~/.local/bin/plantuml.jar'
 
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
