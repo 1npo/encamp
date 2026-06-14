@@ -10,6 +10,8 @@
 .config/ubooquity/logs/
 .config/ubooquity/*.db
 .config/ubooquity/webadmin.cred
+.config/ubooquity/cache/
+.config/ubooquity/fonts/
 
 # protonmail
 .config/protonmail/**/*.enc
