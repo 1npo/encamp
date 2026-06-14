@@ -1,1 +1,12 @@
+# ssh
 .ssh/id_*
+.ssh/authorized_keys*
+.ssh/known_hosts*
+
+# zsh
+.zsh/history*
+
+# ubooquity
+.config/ubooquity/logs/
+.config/ubooquity/*.db
+.config/ubooquity/webadmin.cred
