@@ -1,0 +1,54 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# Changelog\n\nAll notable changes to tmux-powerkit will be documented in this file."
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          { "path": "dist/powerkit-brightness-darwin-arm64", "label": "powerkit-brightness (Apple Silicon)" },
+          { "path": "dist/powerkit-brightness-darwin-amd64", "label": "powerkit-brightness (Intel)" },
+          { "path": "dist/powerkit-nowplaying-darwin-arm64", "label": "powerkit-nowplaying (Apple Silicon)" },
+          { "path": "dist/powerkit-nowplaying-darwin-amd64", "label": "powerkit-nowplaying (Intel)" },
+          { "path": "dist/powerkit-temperature-darwin-arm64", "label": "powerkit-temperature (Apple Silicon)" },
+          { "path": "dist/powerkit-temperature-darwin-amd64", "label": "powerkit-temperature (Intel)" },
+          { "path": "dist/powerkit-gpu-darwin-arm64", "label": "powerkit-gpu (Apple Silicon)" },
+          { "path": "dist/powerkit-gpu-darwin-amd64", "label": "powerkit-gpu (Intel)" },
+          { "path": "dist/powerkit-microphone-darwin-arm64", "label": "powerkit-microphone (Apple Silicon)" },
+          { "path": "dist/powerkit-microphone-darwin-amd64", "label": "powerkit-microphone (Intel)" },
+          { "path": "dist/SHA256SUMS-darwin-arm64.txt", "label": "Checksums (Apple Silicon)" },
+          { "path": "dist/SHA256SUMS-darwin-amd64.txt", "label": "Checksums (Intel)" },
+          { "path": "dist/BUILD-INFO-darwin-arm64.txt", "label": "Build Info (Apple Silicon)" },
+          { "path": "dist/BUILD-INFO-darwin-amd64.txt", "label": "Build Info (Intel)" }
+        ],
+        "successComment": false,
+        "failComment": false
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["CHANGELOG.md"],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}
