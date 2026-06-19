@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/socat TCP-LISTEN:1025,bind=192.168.1.6,fork,reuseaddr TCP:127.0.0.1:1025
+ExecStart=/usr/bin/socat TCP-LISTEN:1025,bind=192.168.1.5,fork,reuseaddr TCP:127.0.0.1:1025
 Restart=always
 RestartSec=5
 
