@@ -49,6 +49,7 @@ services() {
     local USER_SERVICES=(
         ubooquity.service
         protonmail-bridge.service
+        socat-protonmail-bridge.service
     )
     run_step install_user_services "" "${USER_SERVICES[@]}"
     # run_step install_system_services
