@@ -31,6 +31,7 @@ packages() {
         stow
         pass
         ufw
+        socat
         rsync
         rclone
         samba
