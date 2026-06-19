@@ -33,3 +33,5 @@ export RCLONE_PASSWORD_COMMAND='pass rclone/config'
 export LS_COLORS="$(vivid generate molokai)"
 export DISABLE_AUTO_TITLE="true"
 export ELECTRON_OZONE_PLATFORM_HINT="wayland"
+
+export SYSTEMD_UNIT_PATH="${HOME}/.local/share/encamp/configs/user/systemd/.config/systemd:$SYSTEMD_UNIT_PATH"
