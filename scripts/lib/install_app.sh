@@ -89,3 +89,7 @@ install_ubooquity() (
     # Ensure we can write files to a real directory that won't be tracked in VC
     mkdir -p ~/.config/ubooquity
 )
+
+install_dms() (
+    curl -fsSL https://install.danklinux.com | sh
+)
