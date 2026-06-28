@@ -37,7 +37,7 @@ packages() {
 }
 
 config_user() {
-    local CONFIGS=(ubooquity)
+    local CONFIGS=()
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
 
