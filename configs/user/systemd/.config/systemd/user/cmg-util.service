@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=oneshot
 WorkingDirectory=/home/nick/dev/projects/cmg-util
-ExecStart=/home/nick/dev/projects/cmg-util/scripts/cmg-util-service.sh
+ExecStart=bash /home/nick/dev/projects/cmg-util/scripts/cmg-util-service.sh
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=cmg-util
