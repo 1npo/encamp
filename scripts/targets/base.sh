@@ -95,7 +95,6 @@ config_system() {
 
 services() {
     local USER_SERVICES=(
-        gpg-agent.service
         ssh-agent.service
     )
     run_step install_user_services "" "${USER_SERVICES[@]}"
