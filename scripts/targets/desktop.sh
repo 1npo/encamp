@@ -25,12 +25,14 @@ packages() {
         feh
         steam
         fuzzel
+        sway
     )
 
     run_step install_via_apt    ""          "${PACKAGES_APT[@]}"
     run_step install_kitty      kitty
     run_step install_vscode     code
     run_step install_obsidian   obsidian
+    run_step install_dms        dms
 }
 
 config_user() {
@@ -40,6 +42,7 @@ config_user() {
         kitty
         niri
         irssi
+        sway
     )
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
