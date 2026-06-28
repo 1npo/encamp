@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/java -jar /home/nick/.local/bin/Ubooquity.jar --headless --workdir $HOME/.config/ubooquity --remoteadmin
+ExecStart=/usr/bin/java -jar /home/nick/.local/bin/Ubooquity.jar --headless --workdir /home/nick/.config/ubooquity --remoteadmin
 
 [Install]
 WantedBy=default.target
