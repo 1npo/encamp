@@ -140,3 +140,7 @@ systemctl --user status gpg-agent
 : 1789864013:0;ssh
 : 1789864016:0;ssh-add -l
 : 1789864026:0;encamp-sync push
+: 1789864049:0;claude
+: 1789864058:0;cd
+: 1789864059:0;claude
+: 1789864247:0;encamp-sync push
