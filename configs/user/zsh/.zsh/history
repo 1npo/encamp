@@ -133,3 +133,10 @@ systemctl --user status gpg-agent
 : 1789863869:0;nvim ~/.ssh/config
 : 1789863883:0;encamp-sync
 : 1789863885:0;encamp-sync push
+: 1789863980:0;ssh-agent
+: 1789863983:0;ssh-add
+: 1789863992:0;ssh-add ~/.ssh/id_github_1npo
+: 1789864012:0;ssh-add
+: 1789864013:0;ssh
+: 1789864016:0;ssh-add -l
+: 1789864026:0;encamp-sync push
