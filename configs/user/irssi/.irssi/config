@@ -320,7 +320,7 @@ settings = {
   "irc/dcc" = {
     dcc_autoget = "yes";
     dcc_autoget_masks = "LawdyServer";
-    dcc_download_path = "~/sort/dl/";
+    dcc_download_path = "~/dl";
   };
 };
 ignores = ( { mask = "Xmmos_"; level = "ALL"; } );
