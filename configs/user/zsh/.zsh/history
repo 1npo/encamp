@@ -130,3 +130,6 @@ systemctl --user status gpg-agent
 : 1789863804:0;nvim ~/.zsh/config/aliases.zsh
 : 1789863818:0;ssh-add ~/.ssh/id_github_1npo
 : 1789863857:0;encamp-sync push
+: 1789863869:0;nvim ~/.ssh/config
+: 1789863883:0;encamp-sync
+: 1789863885:0;encamp-sync push
