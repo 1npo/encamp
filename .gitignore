@@ -1,10 +1,10 @@
 # ssh
-.ssh/id_*
-.ssh/authorized_keys*
-.ssh/known_hosts*
+**/.ssh/id_*
+**/.ssh/authorized_keys*
+**/.ssh/known_hosts*
 
 # zsh
-.zsh/history*
+**/.zsh/history*
 
 # ubooquity
 .config/ubooquity/logs/
