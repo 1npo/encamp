@@ -27,7 +27,7 @@ export CFLAGS="-O3 -ffast-math -march=native"
 
 export SSH_AUTH_SOCK=/run/user/1000/ssh-agent.sock;
 
-export BRIDGE_SMTP_PW="$(pass proton-bridge-smtp)"
+# export BRIDGE_SMTP_PW="$(pass proton-bridge-smtp)"
 export RCLONE_PASSWORD_COMMAND='pass rclone/config'
 
 export LS_COLORS="$(vivid generate molokai)"
