@@ -13,7 +13,8 @@ _import() {
     source "${script_dir}/../lib/install_services.sh"
     source "${script_dir}/../lib/install_configs.sh"
 }
-_import; unset -f _import
+_import
+unset -f _import
 
 packages() {
     local PACKAGES_APT=(
@@ -30,10 +31,11 @@ packages() {
     )
     local PACKAGES_PIP=(pypiserver)
 
-    run_step install_via_apt        ""              "${PACKAGES_APT[@]}"
-    run_step install_via_pip        ""              "${PACKAGES_PIP[@]}"
-    run_step install_proton_bridge  proton-bridge
+    run_step install_via_apt "" "${PACKAGES_APT[@]}"
+    run_step install_via_pip "" "${PACKAGES_PIP[@]}"
+    run_step install_proton_bridge proton-bridge
     run_step install_ubooquity
+    run_step install_gcloud
 }
 
 config_user() {
@@ -50,6 +52,7 @@ services() {
         ubooquity.service
         protonmail-bridge.service
         socat-protonmail-bridge.service
+        jev-gmail-labeler.service
     )
     run_step install_user_services "" "${USER_SERVICES[@]}"
     # run_step install_system_services

@@ -9,7 +9,8 @@ _import() {
     source "${script_dir}/../settings.sh"
     source "${script_dir}/utils.sh"
 }
-_import; unset -f _import
+_import
+unset -f _import
 
 install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -71,9 +72,9 @@ install_proton_bridge() (
     # deb files programmatically, so we need to scrape the URL from the knowledge base
     # page. There's no guarantee this method will work in the future.
     cd "$CACHE_DIR"
-    deb_url=$(curl -s https://proton.me/support/installing-bridge-linux-deb-file \
-    | grep -oP 'https://proton\.me/download/bridge/protonmail-bridge_[\d.]+-\d+_amd64\.deb' \
-    | head -1)
+    deb_url=$(curl -s https://proton.me/support/installing-bridge-linux-deb-file |
+        grep -oP 'https://proton\.me/download/bridge/protonmail-bridge_[\d.]+-\d+_amd64\.deb' |
+        head -1)
     deb_file=$(curl -fsSL -OJ "$deb_url" -w "%{filename_effective}")
     sudo dpkg -i "$deb_file"
 )
@@ -93,3 +94,14 @@ install_ubooquity() (
 install_dms() (
     curl -fsSL https://install.danklinux.com | sh
 )
+
+install_gcloud() (
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install ca-certificates gnupg curl
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+    sudo apt-get update && sudo apt-get install google-cloud-cli
+    gcloud --version
+)
+

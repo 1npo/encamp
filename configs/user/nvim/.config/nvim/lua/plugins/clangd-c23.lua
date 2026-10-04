@@ -30,7 +30,7 @@ return {
           "--header-insertion=iwyu",
           "--completion-style=detailed",
           "--function-arg-placeholders",
-          "--fallback-style=mozilla",
+          "--fallback-style=webkit",
         },
         init_options = {
           usePlaceholders = true,
