@@ -11,6 +11,8 @@ _import() {
 }
 _import
 unset -f _import
+_import
+unset -f _import
 
 install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -75,6 +77,9 @@ install_proton_bridge() (
     deb_url=$(curl -s https://proton.me/support/installing-bridge-linux-deb-file |
         grep -oP 'https://proton\.me/download/bridge/protonmail-bridge_[\d.]+-\d+_amd64\.deb' |
         head -1)
+    deb_url=$(curl -s https://proton.me/support/installing-bridge-linux-deb-file |
+        grep -oP 'https://proton\.me/download/bridge/protonmail-bridge_[\d.]+-\d+_amd64\.deb' |
+        head -1)
     deb_file=$(curl -fsSL -OJ "$deb_url" -w "%{filename_effective}")
     sudo dpkg -i "$deb_file"
 )
@@ -104,4 +109,13 @@ install_gcloud() (
     sudo apt-get update && sudo apt-get install google-cloud-cli
     gcloud --version
 )
+
+
+
+install_noctalia() {
+    wget https://pkg.noctalia.dev/deb/nickh-archive-keyring.deb && sudo dpkg -i nickh-archive-keyring.deb
+    sudo wget -O /etc/apt/sources.list.d/noctalia-trixie.sources https://pkg.noctalia.dev/deb/noctalia-trixie.sources
+    sudo apt update
+    sudo apt install noctalia
+}
 
