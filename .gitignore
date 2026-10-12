@@ -5,6 +5,7 @@
 
 # zsh
 **/.zsh/history*
+**/.zsh/zcompdump*
 
 # ubooquity
 .config/ubooquity/logs/

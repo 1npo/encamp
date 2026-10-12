@@ -1,6 +1,9 @@
 # Use modern completion system
 autoload -Uz compinit
-compinit -d ~/.zsh/zcompdump
+_zcache="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+[[ -d $_zcache ]] || mkdir -p "$_zcache"
+compinit -d "$_zcache/zcompdump"
+unset _zcache
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
