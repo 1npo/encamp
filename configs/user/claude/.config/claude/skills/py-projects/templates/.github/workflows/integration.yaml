@@ -1,0 +1,20 @@
+name: Integration
+
+# Runs on every branch except main, and on PRs. Pushes to main are covered by
+# release.yaml, which calls this workflow before tagging.
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run pytest

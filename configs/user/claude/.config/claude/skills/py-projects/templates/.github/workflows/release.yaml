@@ -1,0 +1,45 @@
+name: Release
+
+# A release happens when a push to main carries a version with no tag yet,
+# i.e. a version bump. Any other push to main only runs the tests.
+on:
+  push:
+    branches: [main]
+
+jobs:
+  integration:
+    uses: ./.github/workflows/integration.yaml
+
+  release:
+    needs: integration
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        run: |
+          version=$(python3 -c "exec(open('_version.py').read()); print(__version__)")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/v$version" >/dev/null; then
+            echo "new=false" >> "$GITHUB_OUTPUT"
+            echo "v$version already tagged; nothing to release"
+          else
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Tag
+        if: steps.version.outputs.new == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ steps.version.outputs.version }}" -m "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
+
+      # TODO: replace with `uv build` + `uv publish` (PyPI trusted publishing)
+      # once PyPI projects are set up.
+      - name: Publish
+        if: steps.version.outputs.new == 'true'
+        run: echo "Would publish v${{ steps.version.outputs.version }} (no-op until PyPI is configured)"
