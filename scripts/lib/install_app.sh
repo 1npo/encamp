@@ -11,8 +11,6 @@ _import() {
 }
 _import
 unset -f _import
-_import
-unset -f _import
 
 install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -110,12 +108,9 @@ install_gcloud() (
     gcloud --version
 )
 
-
-
 install_noctalia() {
     wget https://pkg.noctalia.dev/deb/nickh-archive-keyring.deb && sudo dpkg -i nickh-archive-keyring.deb
     sudo wget -O /etc/apt/sources.list.d/noctalia-trixie.sources https://pkg.noctalia.dev/deb/noctalia-trixie.sources
     sudo apt update
     sudo apt install noctalia
 }
-
