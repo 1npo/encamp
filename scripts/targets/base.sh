@@ -85,6 +85,7 @@ config_user() {
         rclone
         python_keyring
         gnupg
+        claude
     )
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
