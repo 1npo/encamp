@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: How to make git commits for this user, including the identity to commit under. Use whenever creating a git commit in any repository.
+description: How to make git commits for this user, including the identity to commit under. Use whenever creating a git commit in any repository. Branching, merging, and pushing live in `git-workflow`.
 ---
 
 # Git Commits
@@ -21,4 +21,5 @@ description: How to make git commits for this user, including the identity to co
 ## Finishing
 
 - Keep any attribution trailer the session requires (e.g. `Co-Authored-By:`).
-- Committing directly to `main` and pushing is fine when the user asks for it.
+- Don't commit to `main` directly in repos the user authors. Branch, merge, and push as described in `git-workflow`.
+- Version bumps follow `git-release`.
