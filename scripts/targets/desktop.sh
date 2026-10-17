@@ -32,7 +32,8 @@ packages() {
     run_step install_kitty      kitty
     run_step install_vscode     code
     run_step install_obsidian   obsidian
-    run_step install_dms        dms
+    run_step install_noctalia   noctalia
+    run_step install_greetd     greetd
 }
 
 config_user() {

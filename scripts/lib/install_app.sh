@@ -114,3 +114,22 @@ install_noctalia() {
     sudo apt update
     sudo apt install noctalia
 }
+
+install_greetd() {
+    cargo install --git https://github.com/kennylevinsen/greetd.git greetd agreety
+    sudo useradd -M -G video greeter
+    sudo chmod -R go+r /etc/greetd
+    sudo systemctl enable --now greetd
+
+    # If we don't do this, the greetd will start its own audio stack before it's ready, because we have linger turned on.
+    sudo -u _greetd mkdir -p /var/lib/greetd/.config/systemd/user
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pipewire.service
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pipewire.socket
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pipewire-pulse.service
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pipewire-pulse.socket
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/wireplumber.service
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/filter-chain.service
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pulseaudio.service
+    sudo -u _greetd ln -sf /dev/null /var/lib/greetd/.config/systemd/user/pulseaudio.socket
+    sudo -u _greetd ls -l /var/lib/greetd/.config/systemd/user
+}
