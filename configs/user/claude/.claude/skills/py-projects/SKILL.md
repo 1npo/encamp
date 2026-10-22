@@ -7,22 +7,22 @@ description: Conventions for creating, structuring, and maintaining Python proje
 
 ## Structure
 
-- TODO
+- Use a standard `src/`-based project layout
 
-## Setup
+## Project Management
 
-- TODO
+- Use `uv` for project management
 
 ## Versioning
 
-- The version lives in one place: `_version.py` (`__version__ = 'X.Y.Z'`, wired up with `[tool.hatch.version] path = "_version.py"` and `dynamic = ["version"]`). Older projects with a static `version` in `pyproject.toml` are also supported by the tool.
-- Bump with `scripts/bump.py` in this skill's directory, run from the project root:
+- The version lives in one place: `_version.py` (`__version__ = 'X.Y.Z'`, wired up with `[tool.hatch.version] path = "_version.py"` and `dynamic = ["version"]`). - Bump with Hatch, run from the project root:
 
   ```sh
-  python3 ~/.config/claude/skills/py-projects/scripts/bump.py {major|minor|patch|X.Y.Z}
+  uvx hatch version <major|minor|patch>
+  uv lock
   ```
 
-  Use `--dry-run` to preview and `--project DIR` to target another directory. It updates the version file and `uv.lock` (via `uv lock`), prints the new version, and does not touch git.
+  `hatch version` updates `_version.py` and prints the old and new versions; `uv lock` syncs the project's version in `uv.lock`. Neither touches git.
 - Commit, merge, tag, and push as described in `git-release`. Don't tag; CI does.
 
 ## Templates
