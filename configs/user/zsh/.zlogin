@@ -8,6 +8,9 @@ echo
 echo "Current user services:\n"
 systemctl --user list-units --all --type=service,timer --no-pager
 echo
+echo "Current user timers:\n"
+systemctl --user list-timers --all --no-pager
+echo
 echo "Current user sessions:\n"
 loginctl --no-pager
 echo
