@@ -39,7 +39,7 @@ packages() {
 }
 
 config_user() {
-    local CONFIGS=()
+    local CONFIGS=(cannalerts)
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
 
