@@ -1,0 +1,75 @@
+# cannalerts configuration. Full reference: docs/configuration.md
+#
+# Tip: `cannalerts stores --site <website>` lists a dispensary's stores and menus, and
+# `cannalerts fetch --site <website> --store <town> --menu medical` shows a menu right now.
+
+[settings]
+headless = true
+timeout_seconds = 30
+request_delay_seconds = 1.0
+retries = 3
+# "off", "gentle" (default) or "thorough". See docs/configuration.md#bot-evasion
+bot_evasion = "gentle"
+# Categories to check when a watch doesn't list its own.
+default_categories = ["flower", "pre-rolls", "vaporizers", "concentrates", "edibles"]
+# data_dir = "~/.local/share/cannalerts"
+
+[display]
+# Columns `fetch` shows, in order: category, product, brand, strain, subcategory,
+# thc, option, price, special.
+fetch_fields = ["category", "product", "strain", "thc", "option", "price", "special"]
+# "metric" (3.5g) or "imperial" (1/8oz).
+units = "metric"
+
+[outputs]
+exporters = ["json"]
+# "cents" (integers) or "dollars" (decimal numbers); the database always stores cents.
+price_format = "cents"
+repositories = ["sqlite"]
+
+[notify]
+notifiers = ["stdout", "smtp"]
+
+# To email matches, add "smtp" to notifiers and fill this in:
+[notify.smtp]
+host = "globule"
+port = 1025
+starttls = true
+tls_verify = false  # protonmail-bridge uses a self-signed certificate
+username = "oswaldisaacs@proton.me"
+password_command = "pass proton-bridge-smtp"
+from_addr = "oswaldisaacs@proton.me"
+to_addrs = ["nickpeteromalley@gmail.com"]
+subject = "cannalerts: {count} alert(s), {new_count} new"
+
+# What to watch: a dispensary website, a store (usually the town), and a menu
+# ("adult-use" or "medical").
+[[watches]]
+site = "ayrdispensaries.com"
+store = "Watertown"
+menu = "adult-use"
+
+[[watches]]
+site = "gardenremedies.com"
+store = "Newton"
+menu = "medical"
+
+[[watches]]
+site = "budsgoods.com"
+store = "Watertown"
+menu = "adult-use"
+
+[[watches]]
+site = "ethoscannabis.com"
+store = "Watertown"
+menu = "medical"
+
+[[triggers]]
+label = "Favorite flower"
+category = "flower"
+name = ["indigo", "durban poison", "strawberry cough", "northern lights", "afgoo", "chocolate og", "dthf", "chem93", "boardwax"]
+option = ">=14g"
+
+[[triggers]]
+label = "Temple balls"
+name = ["temple ball"]

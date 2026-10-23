@@ -1,0 +1,8 @@
+[Unit]
+Description=Check dispensary menus and send email notifications with cannalerts
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/cannalerts run --refresh
+Nice=10
+TimeoutStartSec=30min

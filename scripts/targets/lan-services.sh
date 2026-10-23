@@ -53,6 +53,8 @@ services() {
         protonmail-bridge.service
         socat-protonmail-bridge.service
         jev-gmail-labeler.service
+        cannalerts.service
+        cannalerts.timer
     )
     run_step install_user_services "" "${USER_SERVICES[@]}"
     # run_step install_system_services
