@@ -39,7 +39,7 @@ packages() {
 }
 
 config_user() {
-    local CONFIGS=(cannalerts)
+    local CONFIGS=(cannalerts jev-gmail-labeler)
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
 

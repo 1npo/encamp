@@ -17,3 +17,8 @@
 # protonmail
 .config/protonmail/**/*.enc
 .config/protonmail/*/imap-sync/
+
+# secrets
+token.json
+credentials.json
+

@@ -1,0 +1,8 @@
+{
+    "pubsub_topic": "projects/typesafe-jev-sandbox/topics/gmail-notifications",
+    "pubsub_subscription": "projects/typesafe-jev-sandbox/subscriptions/gmail-notifications-sub",
+    "criteria_file": "criteria.json",
+    "jev_model": "jev-latest",
+    "spacy_model": "en_core_web_lg",
+    "log_level": "INFO"
+}
