@@ -11,13 +11,27 @@ retries = 3
 # "off", "gentle" (default) or "thorough". See docs/configuration.md#bot-evasion
 bot_evasion = "gentle"
 # Categories to check when a watch doesn't list its own.
-default_categories = ["flower", "pre-rolls", "vaporizers", "concentrates", "edibles"]
+default_categories = [
+    "flower",
+    "pre-rolls",
+    "vaporizers",
+    "concentrates",
+    "edibles",
+]
 # data_dir = "~/.local/share/cannalerts"
 
 [display]
 # Columns `fetch` shows, in order: category, product, brand, strain, subcategory,
 # thc, option, price, special.
-fetch_fields = ["category", "product", "strain", "thc", "option", "price", "special"]
+fetch_fields = [
+    "category",
+    "product",
+    "strain",
+    "thc",
+    "option",
+    "price",
+    "special",
+]
 # "metric" (3.5g) or "imperial" (1/8oz).
 units = "metric"
 
@@ -35,7 +49,7 @@ notifiers = ["stdout", "smtp"]
 host = "globule"
 port = 1025
 starttls = true
-tls_verify = false  # protonmail-bridge uses a self-signed certificate
+tls_verify = false                                        # protonmail-bridge uses a self-signed certificate
 username = "oswaldisaacs@proton.me"
 password_command = "pass proton-bridge-smtp"
 from_addr = "oswaldisaacs@proton.me"
@@ -67,8 +81,18 @@ menu = "medical"
 [[triggers]]
 label = "Favorite flower"
 category = "flower"
-name = ["indigo", "durban poison", "strawberry cough", "northern lights", "afgoo", "chocolate og", "dthf", "chem93", "boardwax"]
-option = ">=14g"
+name = [
+    "indigo",
+    "durban poison",
+    "strawberry cough",
+    "northern lights",
+    "afgoo",
+    "chocolate og",
+    "dthf",
+    "chem93",
+    "boardwax",
+]
+option = ">=7g"
 
 [[triggers]]
 label = "Temple balls"
