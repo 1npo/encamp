@@ -5,5 +5,6 @@ Description=Check dispensary menus and send email notifications with cannalerts
 Type=oneshot
 Environment=PLAYWRIGHT_BROWSERS_PATH=%h/.local/cache/ms-playwright
 ExecStart=%h/.local/bin/cannalerts run --refresh
+SuccessExitStatus=2
 Nice=10
 TimeoutStartSec=30min
