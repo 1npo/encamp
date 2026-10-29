@@ -11,7 +11,11 @@ description: Conventions for writing, organizing, and running unit tests. Use wh
 
 ## Structure
 
-- Mirror the source tree: `src/pkg/foo.py` -> `tests/pkg/test_foo.py`.
+- Put unit tests under `tests/unit/`, and mirror the source tree from inside that folder:
+  `src/pkg/foo.py` -> `tests/unit/pkg/test_foo.py`. Never mirror from the `tests/` root.
+- Keep test scaffolding (shared fixtures in `conftest.py`, fakes and other helpers) at the
+  `tests/` root, outside `tests/unit/`, so it is not mixed in with the tests of the application
+  code and can be shared by other kinds of tests (e.g. `tests/integration/`).
 - Put each function or method under test in its own class named `Test<Unit>`
   (e.g. `TestParseDate`, `TestOrderTotal`), with every test case for it as a method of that class.
   No module-level test functions.

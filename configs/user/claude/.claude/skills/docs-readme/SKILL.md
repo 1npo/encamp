@@ -13,19 +13,22 @@ The README is the front door: concise, impactful, immediately useful. A reader s
 2. **Visual** (if the project has any UI, TUI, CLI output, or visual result): a screenshot, GIF, or sample output, right below the description. Skip for projects with nothing to show; don't add decoration.
 3. **Usage examples.** The most common real use, with commands/code and expected output. Up front, before installation details, so the value is visible first.
 4. **Install / quick start.** Minimal steps to get running. Exact commands. Prerequisites in one line.
-5. **Documentation links**, split by audience (see [Documentation section](#documentation-section)).
-6. **License**, always, as the last section (or nearly): name the license and link the `LICENSE` file.
+5. **Goals and status.** One to three lines of context so the reader can judge whether to rely on this: why the project exists, what it deliberately does not try to do, its maintenance status (active, experimental, maintenance-only, archived), and who maintains it (a solo hobby project, a team, an organization). State facts, not aspirations.
+6. **Documentation links**, split by audience (see [Documentation section](#documentation-section)).
+7. **License**, always, as the last section (or nearly): name the license and link the `LICENSE` file.
 
-Optional, only if useful: a short feature list, supported platforms, status/stability note.
+Optional, only if useful: a short feature list, supported platforms.
 
 ## Rules
 
 - Short. If it's growing past roughly one screen or two, move the detail into the user guide and link to it.
 - No full option references, architecture, contribution workflow, or troubleshooting; those belong in the guides.
 - Lead with the user's problem and outcome, not the implementation or tech stack (mention the stack only if it affects the reader).
+- Goals and status stay brief and honest: no roadmaps or promises. Name non-goals only when readers are likely to expect them. Use a plain status word, not a badge or hedging.
+- If the status is a warning (experimental, unmaintained, archived, deprecated), don't wait for the Goals and status section: put a one-line note directly under the description.
 - Badges: only ones that carry information (CI status, version). At most a few, below the title.
 - Every command and example must be tested; screenshots must match the current version.
-- Update the README when the headline usage, install steps, or scope changes.
+- Update the README when the headline usage, install steps, scope, or maintenance status changes.
 
 ## Documentation section
 
@@ -57,6 +60,11 @@ name do-the-thing input.txt
 ```sh
 <exact install command>
 ```
+
+## Goals and status
+
+Why this exists and what it deliberately doesn't do, in a sentence or two.
+Status: active. Maintained by <person, team, or organization>.
 
 ## Documentation
 
