@@ -41,7 +41,11 @@ sync_push() {
 }
 
 sync_pull() {
-    git -C "${SHARE_DIR}" pull
+    # ~/.claude/skills links into SHARE_DIR, so edits made through it leave the clone dirty; carry them across the pull
+    if ! git -C "${SHARE_DIR}" pull --autostash; then
+        log "Error: git pull failed; local changes in ${SHARE_DIR} are kept. Resolve them, then run again"
+        return 1
+    fi
     if [ ! -f "${STATE_DIR}/targets" ]; then
         log "Warning: no targets recorded in ${STATE_DIR}/targets, skipping re-stow"
         log "Run main.sh to set targets for this machine"
