@@ -68,6 +68,7 @@ packages() {
     run_step install_via_cargo "" "${PACKAGES_CARGO[@]}"
     run_step install_uv uv
     run_step install_via_pip "" "${PACKAGES_PIP[@]}"
+    run_step install_fnm fnm
     run_step install_bitwarden bw
     run_step install_neovim nvim "deb"
 }

@@ -35,3 +35,8 @@ export DISABLE_AUTO_TITLE="true"
 export ELECTRON_OZONE_PLATFORM_HINT="wayland"
 
 export SYSTEMD_UNIT_PATH="${HOME}/.local/share/encamp/configs/user/systemd/.config/systemd:$SYSTEMD_UNIT_PATH"
+
+# fnm (Node version manager); switches versions automatically on `cd` into a directory with .nvmrc/.node-version
+if command -v fnm &>/dev/null; then
+    eval "$(fnm env --use-on-cd --shell zsh)"
+fi
