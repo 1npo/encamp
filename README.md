@@ -121,7 +121,6 @@ See [docs/guides/](docs/guides/) for instructions on how to perform some manual 
 - [Neovim plugins](docs/guides/nvim-plugins.md)
 - [SSH agent](docs/guides/ssh-agent.md)
 - [tmux plugins](docs/guides/tmux-plugins.md)
-- [zsh plugins](docs/guides/zsh-plugins.md)
 
 ## LLM Usage Disclosure
 

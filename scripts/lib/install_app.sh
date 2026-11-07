@@ -26,6 +26,12 @@ install_uv() {
     fi
 }
 
+install_fnm() {
+    # --skip-shell: the shell loader lives in configs/user/zsh/.zsh/config/env.zsh instead
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$BIN_DIR" --skip-shell
+    "${BIN_DIR}/fnm" install --lts
+}
+
 install_bitwarden() (
     cd "$CACHE_DIR"
     deb_file=$(curl -fsSL -OJ "https://bitwarden.com/download/?app=cli&platform=linux" -w "%{filename_effective}")
