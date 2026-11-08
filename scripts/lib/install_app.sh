@@ -32,6 +32,21 @@ install_fnm() {
     "${BIN_DIR}/fnm" install --lts
 }
 
+install_herdr() {
+    curl -fsSL https://herdr.dev/install.sh | sh
+}
+
+install_dotnet_runtime() (
+    # Adds Microsoft's apt repo (https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian)
+    . /etc/os-release
+    cd "$CACHE_DIR"
+    curl -fsSL -o packages-microsoft-prod.deb \
+        "https://packages.microsoft.com/config/debian/${VERSION_ID}/packages-microsoft-prod.deb"
+    sudo dpkg -i packages-microsoft-prod.deb
+    rm packages-microsoft-prod.deb
+    install_via_apt dotnet-runtime-10.0
+)
+
 install_bitwarden() (
     cd "$CACHE_DIR"
     deb_file=$(curl -fsSL -OJ "https://bitwarden.com/download/?app=cli&platform=linux" -w "%{filename_effective}")

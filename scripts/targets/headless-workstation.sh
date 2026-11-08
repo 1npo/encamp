@@ -18,6 +18,8 @@ _import; unset -f _import
 packages() {
     local PACKAGES_APT=(irssi rtorrent)
     run_step install_via_apt "" "${PACKAGES_APT[@]}"
+    run_step install_herdr herdr
+    run_step install_dotnet_runtime dotnet
 }
 
 config_user() {
