@@ -36,16 +36,28 @@ install_herdr() {
     curl -fsSL https://herdr.dev/install.sh | sh
 }
 
-install_dotnet_runtime() (
-    # Adds Microsoft's apt repo (https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian)
+add_microsoft_apt_repo() (
+    # Adds Microsoft's apt repo once (https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian)
+    dpkg -s packages-microsoft-prod &>/dev/null && return 0
     . /etc/os-release
     cd "$CACHE_DIR"
     curl -fsSL -o packages-microsoft-prod.deb \
         "https://packages.microsoft.com/config/debian/${VERSION_ID}/packages-microsoft-prod.deb"
     sudo dpkg -i packages-microsoft-prod.deb
     rm packages-microsoft-prod.deb
-    install_via_apt dotnet-runtime-10.0
 )
+
+install_dotnet_runtime() {
+    add_microsoft_apt_repo
+    install_via_apt dotnet-runtime-10.0
+}
+
+install_dotnet_sdk() {
+    # The SDK builds .NET code (dotnet build, restore, tools); the runtime only runs it.
+    # Microsoft's feed carries every 10.0 feature band, so apt installs or upgrades to the newest SDK.
+    add_microsoft_apt_repo
+    install_via_apt dotnet-sdk-10.0
+}
 
 install_bitwarden() (
     cd "$CACHE_DIR"

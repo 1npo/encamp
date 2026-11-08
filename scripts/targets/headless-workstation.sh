@@ -20,6 +20,8 @@ packages() {
     run_step install_via_apt "" "${PACKAGES_APT[@]}"
     run_step install_herdr herdr
     run_step install_dotnet_runtime dotnet
+    # No skip check: the runtime puts `dotnet` in $PATH without an SDK, and apt upgrades an older SDK
+    run_step install_dotnet_sdk ""
 }
 
 config_user() {
