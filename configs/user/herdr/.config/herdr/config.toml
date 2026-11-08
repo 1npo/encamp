@@ -1,0 +1,11 @@
+onboarding = false
+
+[ui]
+status_indicators = "symbols"
+
+[ui.toast]
+delivery = "off"
+
+[keys]
+prefix = "ctrl+a"
+detach = "prefix+d"

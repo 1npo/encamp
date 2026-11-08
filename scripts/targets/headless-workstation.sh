@@ -23,7 +23,7 @@ packages() {
 }
 
 config_user() {
-    local CONFIGS=(irssi)
+    local CONFIGS=(irssi herdr)
     run_step install_user_configs "" "${CONFIGS[@]}"
 }
 
