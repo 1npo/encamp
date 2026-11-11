@@ -88,3 +88,57 @@ teardown() {
     [ "$status" -eq 0 ]
     assert_mock_called "sudo" "cp"
 }
+
+# --- install_external_skills ---
+
+make_skill_origin() {
+    ORIGIN="${TEST_TMPDIR}/origin"
+    git init -q -b main "${ORIGIN}"
+    echo "1.0.0" > "${ORIGIN}/VERSION"
+    git -C "${ORIGIN}" add VERSION
+    git -C "${ORIGIN}" -c user.name=t -c user.email=t@t commit -q -m one
+    EXTERNAL_SKILLS=("dossier ${ORIGIN}")
+}
+
+@test "install_external_skills clones a skill that is missing" {
+    rm -f "${MOCK_BIN}/git"
+    make_skill_origin
+    run install_external_skills
+    [ "$status" -eq 0 ]
+    [ "$(cat "${HOME}/.claude/skills/dossier/VERSION")" = "1.0.0" ]
+}
+
+@test "install_external_skills pulls new commits into an existing clone" {
+    rm -f "${MOCK_BIN}/git"
+    make_skill_origin
+    install_external_skills
+    echo "1.1.0" > "${ORIGIN}/VERSION"
+    git -C "${ORIGIN}" -c user.name=t -c user.email=t@t commit -q -am two
+    run install_external_skills
+    [ "$status" -eq 0 ]
+    [ "$(cat "${HOME}/.claude/skills/dossier/VERSION")" = "1.1.0" ]
+}
+
+@test "install_external_skills replaces a stale stow symlink with a clone" {
+    rm -f "${MOCK_BIN}/git"
+    make_skill_origin
+    mkdir -p "${HOME}/.claude/skills"
+    ln -s "${TEST_TMPDIR}/gone" "${HOME}/.claude/skills/dossier"
+    run install_external_skills
+    [ "$status" -eq 0 ]
+    [ ! -L "${HOME}/.claude/skills/dossier" ]
+    [ -d "${HOME}/.claude/skills/dossier/.git" ]
+}
+
+@test "install_external_skills leaves a clone with local changes alone" {
+    rm -f "${MOCK_BIN}/git"
+    make_skill_origin
+    install_external_skills
+    echo "edited" > "${HOME}/.claude/skills/dossier/VERSION"
+    echo "1.1.0" > "${ORIGIN}/VERSION"
+    git -C "${ORIGIN}" -c user.name=t -c user.email=t@t commit -q -am two
+    run install_external_skills
+    [ "$status" -eq 0 ]
+    [[ "$output" =~ "local changes" ]]
+    [ "$(cat "${HOME}/.claude/skills/dossier/VERSION")" = "edited" ]
+}
