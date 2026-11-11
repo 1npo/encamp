@@ -142,3 +142,11 @@ make_skill_origin() {
     [[ "$output" =~ "local changes" ]]
     [ "$(cat "${HOME}/.claude/skills/dossier/VERSION")" = "edited" ]
 }
+
+@test "install_user_configs makes stow ignore a skill that lives in its own repository" {
+    EXTERNAL_SKILLS=("dossier https://example.invalid/dossier.git")
+    make_mock_cmd "git" 0
+    run install_user_configs claude
+    [ "$status" -eq 0 ]
+    assert_mock_called "stow" 'skills/dossier'
+}

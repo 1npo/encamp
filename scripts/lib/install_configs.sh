@@ -11,6 +11,10 @@ _import() {
 }
 _import; unset -f _import
 
+# Skills that live in their own repository. They are cloned into ~/.claude/skills/<name> (not stowed, and not
+# vendored into this repository), and updated by every pull, so a release of the skill is live after the next sync.
+EXTERNAL_SKILLS=("dossier https://github.com/1npo/dossier.git")
+
 install_user_configs() {
     local configs_dir="${SHARE_DIR}/configs/user"
     local packages=("$@")
@@ -19,15 +23,17 @@ install_user_configs() {
         return 0
     fi
     for pkg in "${packages[@]}"; do
-        stow --dir="${configs_dir}" --target="${HOME}" --restow "${pkg}"
+        local ignore=()
+        if [ "${pkg}" = "claude" ]; then
+            # Leftovers of a skill that used to live in this repository must not be stowed over its clone
+            local entry
+            for entry in "${EXTERNAL_SKILLS[@]}"; do ignore+=(--ignore="^/\\.claude/skills/${entry%% *}\$"); done
+        fi
+        stow --dir="${configs_dir}" --target="${HOME}" "${ignore[@]}" --restow "${pkg}"
         [ "${pkg}" = "claude" ] && install_external_skills
     done
     return 0
 }
-
-# Skills that live in their own repository. They are cloned into ~/.claude/skills/<name> (not stowed, and not
-# vendored into this repository), and updated by every pull, so a release of the skill is live after the next sync.
-EXTERNAL_SKILLS=("dossier https://github.com/1npo/dossier.git")
 
 install_external_skills() {
     local skills_dir="${HOME}/.claude/skills" entry name url dest
