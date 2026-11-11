@@ -1,0 +1,495 @@
+{
+ "schema": 1,
+ "verified": "2026-11-01",
+ "pin_rule": "Newest stable release published at least 14 days before the verified date. Re-check at the start of the milestone that first runs the tool.",
+ "python": "3.13",
+ "languages": {
+  "Python": "python",
+  "JavaScript": "js",
+  "TypeScript": "js",
+  "C#": "csharp"
+ },
+ "host": [
+  {
+   "id": "git",
+   "scope": [
+    "all"
+   ],
+   "command": [
+    "git",
+    "--version"
+   ],
+   "pattern": "git version (\\d+\\.\\d+(?:\\.\\d+)?)",
+   "min": "2.30",
+   "install": {
+    "linux": "sudo apt install git",
+    "darwin": "brew install git"
+   },
+   "source": "https://git-scm.com/docs/git-clone"
+  },
+  {
+   "id": "gh",
+   "optional": true,
+   "scope": [
+    "all"
+   ],
+   "command": [
+    "gh",
+    "--version"
+   ],
+   "pattern": "gh version (\\d+\\.\\d+\\.\\d+)",
+   "install": {
+    "linux": "sudo apt install gh",
+    "darwin": "brew install gh"
+   },
+   "purpose": "reads pull request approvals, so commits by agents and bots belong to the person who approved them",
+   "source": "https://cli.github.com/manual/gh_api"
+  },
+  {
+   "id": "uv",
+   "scope": [
+    "all"
+   ],
+   "command": [
+    "uv",
+    "--version"
+   ],
+   "pattern": "uv (\\d+\\.\\d+\\.\\d+)",
+   "min": "0.6.0",
+   "install": {
+    "linux": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+    "darwin": "curl -LsSf https://astral.sh/uv/install.sh | sh"
+   },
+   "source": "https://docs.astral.sh/uv/reference/cli/"
+  },
+  {
+   "id": "node",
+   "scope": [
+    "python",
+    "js"
+   ],
+   "command": [
+    "node",
+    "--version"
+   ],
+   "pattern": "v(\\d+\\.\\d+\\.\\d+)",
+   "min": {
+    "python": "16.0.0",
+    "js": "22.13.0"
+   },
+   "install": {
+    "linux": "Install Node.js (version shown above or later) from https://nodejs.org/en/download, or with your version manager",
+    "darwin": "brew install node"
+   },
+   "source": "https://github.com/sourcegraph/scip-typescript"
+  },
+  {
+   "id": "npm",
+   "scope": [
+    "python",
+    "js"
+   ],
+   "command": [
+    "npm",
+    "--version"
+   ],
+   "pattern": "(\\d+\\.\\d+\\.\\d+)",
+   "min": "7.0.0",
+   "install": {
+    "linux": "Install Node.js (version shown above or later) from https://nodejs.org/en/download, or with your version manager",
+    "darwin": "brew install node"
+   },
+   "source": "https://docs.npmjs.com/cli/v10/commands/npm-ci"
+  },
+  {
+   "id": "dotnet",
+   "scope": [
+    "csharp"
+   ],
+   "command": [
+    "dotnet",
+    "--list-sdks"
+   ],
+   "pattern": "(?m)^(\\d+\\.\\d+\\.\\d+)",
+   "min": "8.0.100",
+   "install": {
+    "linux": "Install the .NET SDK 8 or later: https://learn.microsoft.com/dotnet/core/install/linux",
+    "darwin": "brew install --cask dotnet-sdk"
+   },
+   "source": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  }
+ ],
+ "tools": [
+  {
+   "id": "tree-sitter-language-pack",
+   "scope": [
+    "all"
+   ],
+   "via": "uv",
+   "package": "tree-sitter-language-pack",
+   "version": "1.22.1",
+   "published": "2026-10-12",
+   "gives": "syntax-tree queries for any language",
+   "source": "https://github.com/xberg-io/tree-sitter-language-pack",
+   "first_used": "M1",
+   "cards": [
+    "data.entities",
+    "data.relationships",
+    "behavior.tests",
+    "interactions.state",
+    "change.hotspots"
+   ]
+  },
+  {
+   "id": "semgrep",
+   "scope": [
+    "all"
+   ],
+   "via": "uv",
+   "package": "semgrep",
+   "version": "1.181.0",
+   "published": "2026-10-14",
+   "gives": "pattern rules for inputs and outputs",
+   "source": "https://docs.semgrep.dev/cli-reference",
+   "first_used": "M1",
+   "cards": [
+    "entry.catalog",
+    "io.inputs",
+    "io.outputs",
+    "interactions.state",
+    "interactions.concurrency",
+    "data.stores",
+    "behavior.failures",
+    "behavior.observability"
+   ]
+  },
+  {
+   "id": "grimp",
+   "scope": [
+    "python"
+   ],
+   "via": "uv",
+   "package": "grimp",
+   "version": "3.17",
+   "published": "2026-09-04",
+   "gives": "Python import graph",
+   "source": "https://grimp.readthedocs.io/en/stable/usage.html",
+   "first_used": "M2",
+   "cards": [
+    "reading.order",
+    "components.map",
+    "components.catalog",
+    "interactions.graph",
+    "interactions.violations",
+    "interactions.flows",
+    "change.blast-radius"
+   ]
+  },
+  {
+   "id": "vulture",
+   "scope": [
+    "python"
+   ],
+   "via": "uv",
+   "package": "vulture",
+   "version": "2.16",
+   "published": "2026-03-25",
+   "gives": "unused Python code",
+   "source": "https://github.com/jendrikseipp/vulture",
+   "first_used": "M2",
+   "cards": [
+    "change.dead-code"
+   ]
+  },
+  {
+   "id": "import-linter",
+   "scope": [
+    "python"
+   ],
+   "via": "repo-config",
+   "package": "import-linter",
+   "version": "2.15",
+   "published": "2026-09-04",
+   "gives": "the repository's own import rules (read only)",
+   "source": "https://import-linter.readthedocs.io/en/stable/",
+   "first_used": "M2",
+   "cards": [
+    "interactions.violations"
+   ]
+  },
+  {
+   "id": "scip-python",
+   "scope": [
+    "python"
+   ],
+   "via": "npx",
+   "package": "@sourcegraph/scip-python",
+   "node_lock": "node/scip-python",
+   "version": "0.6.6",
+   "published": "2025-09-05",
+   "gives": "Python symbols and references",
+   "source": "https://github.com/sourcegraph/scip-python",
+   "first_used": "M2",
+   "cards": [
+    "components.catalog",
+    "interactions.flows",
+    "interactions.graph"
+   ]
+  },
+  {
+   "id": "dependency-cruiser",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "dependency-cruiser",
+   "version": "18.7.0",
+   "published": "2026-10-19",
+   "gives": "JavaScript and TypeScript import graph",
+   "source": "https://github.com/sverweij/dependency-cruiser/blob/main/doc/cli.md",
+   "first_used": "M4",
+   "cards": [
+    "reading.order",
+    "components.map",
+    "components.catalog",
+    "interactions.graph",
+    "interactions.violations",
+    "interactions.flows",
+    "change.blast-radius"
+   ],
+   "node_lock": "node/js-tools",
+   "verified": "2026-11-05"
+  },
+  {
+   "id": "knip",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "knip",
+   "version": "6.42.1",
+   "published": "2026-10-19",
+   "gives": "unused JavaScript and TypeScript code",
+   "source": "https://knip.dev/reference/cli",
+   "first_used": "M4",
+   "cards": [
+    "change.dead-code"
+   ],
+   "node_lock": "node/js-tools",
+   "verified": "2026-11-05"
+  },
+  {
+   "id": "scip-typescript",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "@sourcegraph/scip-typescript",
+   "version": "0.5.2",
+   "published": "2026-10-22",
+   "gives": "JavaScript and TypeScript symbols and references",
+   "source": "https://github.com/sourcegraph/scip-typescript",
+   "first_used": "M4",
+   "cards": [
+    "components.catalog",
+    "interactions.flows",
+    "interactions.graph"
+   ],
+   "node_lock": "node/js-tools",
+   "verified": "2026-11-05"
+  },
+  {
+   "id": "typescript",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "typescript",
+   "version": "6.0.3",
+   "published": "2026-04-16",
+   "gives": "the TypeScript compiler API",
+   "source": "https://www.npmjs.com/package/typescript",
+   "first_used": "M4",
+   "cards": [
+    "data.entities",
+    "data.relationships",
+    "entry.catalog",
+    "interactions.graph"
+   ],
+   "node_lock": "node/js-tools",
+   "verified": "2026-11-05"
+  },
+  {
+   "id": "yarn",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "yarn",
+   "node_lock": "node/js-tools",
+   "version": "1.22.22",
+   "published": "2024-03-09",
+   "gives": "installs a repository's locked packages",
+   "source": "https://www.npmjs.com/package/yarn",
+   "first_used": "M4",
+   "verified": "2026-11-05",
+   "cards": []
+  },
+  {
+   "id": "yarn-berry",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "@yarnpkg/cli-dist",
+   "node_lock": "node/js-tools",
+   "version": "4.18.1",
+   "published": "2026-09-24",
+   "gives": "installs a repository's locked packages",
+   "source": "https://yarnpkg.com/cli/install",
+   "first_used": "M4",
+   "verified": "2026-11-05",
+   "cards": []
+  },
+  {
+   "id": "pnpm",
+   "scope": [
+    "js"
+   ],
+   "via": "npx",
+   "package": "pnpm",
+   "node_lock": "node/js-tools",
+   "version": "12.15.0",
+   "published": "2026-10-21",
+   "gives": "installs a repository's locked packages",
+   "source": "https://pnpm.io/cli/install",
+   "first_used": "M4",
+   "verified": "2026-11-05",
+   "cards": []
+  },
+  {
+   "id": "scip-dotnet",
+   "scope": [
+    "csharp"
+   ],
+   "via": "dotnet-tool",
+   "package": "scip-dotnet",
+   "version": "0.2.16",
+   "published": "2026-10-21",
+   "nupkg": {
+    "url": "https://api.nuget.org/v3-flatcontainer/scip-dotnet/0.2.16/scip-dotnet.0.2.16.nupkg",
+    "sha512": "UUaPQCnqIWFYGXaKtgjieBP0WR0uH8L55pwqhtOJH/3El+zCF5/cXXX30oYXrfKYZibDjun2knU8r1212i+eWw==",
+    "size": 56673777
+   },
+   "gives": "C# symbols and references",
+   "source": "https://github.com/sourcegraph/scip-dotnet",
+   "first_used": "M5",
+   "verified": "2026-11-08",
+   "cards": [
+    "components.catalog",
+    "interactions.flows",
+    "interactions.graph"
+   ]
+  },
+  {
+   "id": "dotnet-package-list",
+   "scope": [
+    "csharp"
+   ],
+   "via": "sdk",
+   "package": "dotnet package list",
+   "version": null,
+   "published": null,
+   "gives": "NuGet packages, including indirect ones",
+   "source": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-package-list",
+   "first_used": "M5",
+   "open": "Not run: packages.lock.json already lists the indirect packages, and nothing reads this output (plan 011, S6).",
+   "cards": []
+  }
+ ],
+ "restore": [
+  {
+   "ecosystem": "python",
+   "lockfile": "uv.lock",
+   "nested": true,
+   "command": [
+    "uv",
+    "sync",
+    "--frozen"
+   ],
+   "enabled": true,
+   "source": "https://docs.astral.sh/uv/reference/cli/"
+  },
+  {
+   "ecosystem": "npm",
+   "lockfile": "package-lock.json",
+   "command": [
+    "npm",
+    "ci",
+    "--ignore-scripts",
+    "--no-audit",
+    "--no-fund"
+   ],
+   "enabled": true,
+   "source": "https://docs.npmjs.com/cli/v11/commands/npm-ci",
+   "nested": true
+  },
+  {
+   "ecosystem": "yarn",
+   "lockfile": "yarn.lock",
+   "nested": true,
+   "enabled": true,
+   "auth": "npm",
+   "command": [
+    "node",
+    "{js_tools}/node_modules/yarn/bin/yarn.js",
+    "install",
+    "--frozen-lockfile",
+    "--ignore-scripts",
+    "--non-interactive"
+   ],
+   "berry_command": [
+    "node",
+    "{js_tools}/node_modules/@yarnpkg/cli-dist/bin/yarn.js",
+    "install",
+    "--immutable",
+    "--mode=skip-build"
+   ],
+   "source": "https://yarnpkg.com/cli/install"
+  },
+  {
+   "ecosystem": "pnpm",
+   "lockfile": "pnpm-lock.yaml",
+   "nested": true,
+   "enabled": true,
+   "auth": "npm",
+   "command": [
+    "node",
+    "{js_tools}/node_modules/pnpm/bin/pnpm.mjs",
+    "install",
+    "--frozen-lockfile",
+    "--ignore-scripts",
+    "--store-dir",
+    "{pnpm_store}"
+   ],
+   "source": "https://pnpm.io/cli/install"
+  },
+  {
+   "ecosystem": "nuget",
+   "lockfile": "packages.lock.json",
+   "nested": true,
+   "enabled": true,
+   "command": [
+    "dotnet",
+    "restore",
+    "{project}",
+    "--locked-mode",
+    "-p:NuGetAudit=false",
+    "--disable-build-servers",
+    "-v",
+    "minimal"
+   ],
+   "source": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-restore"
+  }
+ ]
+}
