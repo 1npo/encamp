@@ -1,2 +1,0 @@
-test:  # @ep-make
-	pytest
