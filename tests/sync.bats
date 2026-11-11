@@ -75,10 +75,11 @@ teardown() {
 
 # --- pull ---
 
-@test "sync.sh pull calls git pull" {
+@test "sync.sh pull fetches and fast-forwards without --quiet" {
     run_sync "pull"
     [ "$status" -eq 0 ]
-    assert_mock_called "git" "pull"
+    assert_mock_called "git" "fetch"
+    assert_mock_called "git" "merge --ff-only @{upstream}"
 }
 
 @test "sync.sh pull warns when no targets file exists" {

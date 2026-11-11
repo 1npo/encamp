@@ -45,24 +45,25 @@ sync_pull() {
     # Local edits (made through ~/.claude/skills, systemctl, ...) are carried across the pull only when they apply
     # cleanly. When they do not, upstream wins, the edits stay in a stash, and the pull fails loudly.
     # `git pull --autostash` is not used: it exits 0 even when re-applying the stash leaves conflict markers.
+    # Git output is left unsuppressed on purpose: the user should always see what the pull did.
     local repo="${SHARE_DIR}" stashed="" conflicted
     if [ -n "$(git -C "${repo}" diff --name-only --diff-filter=U)" ]; then
         log "Error: ${repo} has unresolved merge conflicts. Resolve them (git -C ${repo} status), then run again"
         return 1
     fi
-    git -C "${repo}" fetch --quiet || { log "Error: git fetch failed"; return 1; }
+    git -C "${repo}" fetch || { log "Error: git fetch failed"; return 1; }
     if [ -n "$(git -C "${repo}" status --porcelain --untracked-files=no)" ]; then
-        git -C "${repo}" stash push --quiet -m "encamp-sync pull $(date '+%Y-%m-%d %H:%M')" || { log "Error: could not stash local changes in ${repo}"; return 1; }
+        git -C "${repo}" stash push -m "encamp-sync pull $(date '+%Y-%m-%d %H:%M')" || { log "Error: could not stash local changes in ${repo}"; return 1; }
         stashed="yes"
     fi
-    if ! git -C "${repo}" merge --ff-only --quiet '@{upstream}'; then
+    if ! git -C "${repo}" merge --ff-only '@{upstream}'; then
         log "Error: ${repo} has local commits and cannot fast-forward. Push or reset them, then run again"
-        [ -n "${stashed}" ] && git -C "${repo}" stash pop --quiet
+        [ -n "${stashed}" ] && git -C "${repo}" stash pop
         return 1
     fi
     if [ -n "${stashed}" ]; then
-        if git -C "${repo}" stash apply --quiet 2>/dev/null; then
-            git -C "${repo}" stash drop --quiet
+        if git -C "${repo}" stash apply; then
+            git -C "${repo}" stash drop
         else
             conflicted=$(git -C "${repo}" diff --name-only --diff-filter=U)
             # Put the conflicted files back to upstream so no conflict marker reaches a live file; keep the other local edits
